@@ -5,19 +5,16 @@ export default function LoginScreen() {
   return (
     <View style={styles.container}>
       <Image
+        source={require("../assets/Mercedes-Benz.png")}
+        style={styles.imagetwo}
+      />
+      <Image
         source={require("../assets/logo-no-background.png")}
         style={styles.image}
       />
-      <Image
-        source={require("../assets/Chevrolet-Camaro.png")}
-        style={styles.imagetwo}
-      />
-      <View style={styles.login}>
-        <TextInput type="text" value="email" style={styles.input} />
-        <TextInput style={styles.input} type="number" value="Password" />
-        <View style={styles.button}>
-          <Text style={styles.buttonText}>Login</Text>
-        </View>
+      <Text style={styles.text}>Your Ride, Your Way!"</Text>
+      <View style={styles.button}>
+        <Text style={styles.buttonText}>Let's Go</Text>
       </View>
       <StatusBar style="auto" />
     </View>
@@ -32,26 +29,27 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   image: {
-    width: 200,
+    width: 250,
     height: 200,
     resizeMode: "contain",
-    // marginBottom:20,
+    marginRight: 65,
+    marginTop: 20, // زيادة الهامش العلوي للصورة
   },
   imagetwo: {
-    height: 300,
+    height: 220,
     resizeMode: "contain",
-    marginLeft: 130,
-
+    marginRight: 100,
   },
   button: {
     width: 300,
     height: 40,
     backgroundColor: "#ffffff",
-    borderRadius: 8,
+    borderRadius: 50,
     paddingHorizontal: 54,
     paddingVertical: 10,
     alignItems: "center",
     justifyContent: "center",
+    marginTop: 20, // إضافة هامش من الأعلى للزر
   },
   buttonText: {
     color: "#000000",
@@ -61,13 +59,11 @@ const styles = StyleSheet.create({
   login: {
     flex: 1,
   },
-  input: {
-    width: 300,
-    height: 40,
-    backgroundColor: "#ffffff",
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+  text: {
+    color: "#8e8e8e",
+    fontSize: 26,
+    fontWeight: "bold",
+    marginRight: 50,
+    marginBottom: 30,
   },
 });
