@@ -29,13 +29,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "rgb(44, 43, 52)",
     alignItems: "center",
-    justifyContent: "center",
+    // justifyContent: "center",
   },
   image: {
     width: 200,
     height: 200,
     resizeMode: "contain",
-    // marginBottom:20,
   },
   imagetwo: {
     height: 300,
@@ -45,7 +44,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: 300,
-    height: 40,
+    height: 50,
     backgroundColor: "#ffffff",
     borderRadius: 8,
     paddingHorizontal: 54,
@@ -63,11 +62,12 @@ const styles = StyleSheet.create({
   },
   input: {
     width: 300,
-    height: 40,
+    height: 50,
     backgroundColor: "#ffffff",
     borderWidth: 1,
     marginBottom: 10,
     paddingHorizontal: 20,
     borderRadius: 8,
+
   },
 });
