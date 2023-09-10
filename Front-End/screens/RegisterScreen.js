@@ -1,28 +1,51 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, TextInput, Button } from "react-native";
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  ScrollView,
+} from "react-native";
 
 export default function LoginScreen() {
   return (
-    <View style={styles.container}>
-      <Image
-        source={require("../assets/logo-no-background.png")}
-        style={styles.image}
-      />
-      <Image
-        source={require("../assets/Mercedes.png")}
-        style={styles.imagetwo}
-      />
-      <View style={styles.login}>
-        <TextInput type="text" value="User Name" style={styles.input} />
-        <TextInput type="text" value="email" style={styles.input} />
-        <TextInput style={styles.input} type="number" value="Password" />
-        <TextInput style={styles.input} type="number" value="Confirm password" />
-        <View style={styles.button}>
-          <Text style={styles.buttonText}>Sign Up</Text>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
+    >
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <Image
+          source={require("../assets/logo-no-background.png")}
+          style={styles.image}
+        />
+        <Image
+          source={require("../assets/Mercedes.png")}
+          style={styles.imagetwo}
+        />
+        <View style={styles.login}>
+          <TextInput type="text" placeholder="User Name" style={styles.input} />
+          <TextInput type="text" placeholder="email" style={styles.input} />
+          <TextInput
+            style={styles.input}
+            placeholder="Password"
+            secureTextEntry
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Confirm password"
+            secureTextEntry
+          />
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Sign Up</Text>
+          </TouchableOpacity>
         </View>
-      </View>
+      </ScrollView>
       <StatusBar style="auto" />
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -30,6 +53,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "rgb(44, 43, 52)",
+  },
+  scrollContainer: {
+    marginBottom: 35,
+    flex: 1,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -42,7 +69,6 @@ const styles = StyleSheet.create({
     height: 200,
     resizeMode: "contain",
     marginLeft: 100,
-
   },
   button: {
     width: 300,
@@ -61,6 +87,8 @@ const styles = StyleSheet.create({
   },
   login: {
     flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
   input: {
     width: 300,

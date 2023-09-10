@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, TextInput, Button } from "react-native";
+import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity } from "react-native";
 
 export default function LoginScreen() {
   return (
@@ -13,9 +13,9 @@ export default function LoginScreen() {
         style={styles.image}
       />
       <Text style={styles.text}>Your Ride, Your Way!"</Text>
-      <View style={styles.button}>
+      <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Let's Go</Text>
-      </View>
+      </TouchableOpacity>
       <StatusBar style="auto" />
     </View>
   );
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     height: 200,
     resizeMode: "contain",
     marginRight: 65,
-    marginTop: 20, // زيادة الهامش العلوي للصورة
+    marginTop: 20,
   },
   imagetwo: {
     height: 220,

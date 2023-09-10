@@ -1,26 +1,38 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, TextInput, Button } from "react-native";
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, KeyboardAvoidingView } from "react-native";
 
 export default function LoginScreen() {
   return (
-    <View style={styles.container}>
-      <Image
-        source={require("../assets/logo-no-background.png")}
-        style={styles.image}
-      />
-      <Image
-        source={require("../assets/Chevrolet-Camaro.png")}
-        style={styles.imagetwo}
-      />
-      <View style={styles.login}>
-        <TextInput type="text" value="email" style={styles.input} />
-        <TextInput style={styles.input} type="number" value="Password" />
-        <View style={styles.button}>
-          <Text style={styles.buttonText}>Login</Text>
+    <KeyboardAvoidingView behavior="padding" style={styles.container}>
+      <View style={styles.container}>
+        <Image
+          source={require("../assets/logo-no-background.png")}
+          style={styles.image}
+        />
+        <Image
+          source={require("../assets/Chevrolet-Camaro.png")}
+          style={styles.imagetwo}
+        />
+
+        <View style={styles.login}>
+          <TextInput
+            type="text"
+            placeholder="email"
+            style={styles.input}
+          />
+          <TextInput
+            style={styles.input}
+            type="number"
+            placeholder="Password"
+            secureTextEntry
+          />
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Login</Text>
+          </TouchableOpacity>
         </View>
+        <StatusBar style="auto" />
       </View>
-      <StatusBar style="auto" />
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -29,7 +41,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "rgb(44, 43, 52)",
     alignItems: "center",
-    // justifyContent: "center",
+    justifyContent: "center", // Added this to center the content vertically
   },
   image: {
     width: 200,
@@ -40,7 +52,6 @@ const styles = StyleSheet.create({
     height: 300,
     resizeMode: "contain",
     marginLeft: 130,
-
   },
   button: {
     width: 300,
@@ -59,6 +70,8 @@ const styles = StyleSheet.create({
   },
   login: {
     flex: 1,
+    alignItems: "center", // Added this to center the inputs and button
+    justifyContent: "center",
   },
   input: {
     width: 300,
@@ -68,6 +81,5 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     paddingHorizontal: 20,
     borderRadius: 8,
-
   },
 });
