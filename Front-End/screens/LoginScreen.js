@@ -1,21 +1,21 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { useLogin } from "../hooks/useLogin";
+// import { useLogin } from "../hooks/useLogin";
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, KeyboardAvoidingView } from "react-native";
 
 const LoginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const { login, error, isLoading } = useLogin();
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const { login, error, isLoading } = useLogin();
 
 
-  const handleSubmit = async () => {
-    await login(email, password);
-  };
+  // const handleSubmit = async () => {
+  //   await login(email, password);
+  // };
 
 
   const goToRegister = () => {
-    navigation.navigate('Register'); // Assuming 'Register' is the name of your Register Screen
+    navigation.navigate('Register');
   }
 
   return (
@@ -29,14 +29,13 @@ const LoginScreen = ({ navigation }) => {
           source={require("../assets/Chevrolet-Camaro.png")}
           style={styles.imagetwo}
         />
-
         <View style={styles.login}>
           <TextInput
             type="text"
             placeholder="email"
             style={styles.input}
-            onChangeText={setEmail}
-            value={email}
+            // onChangeText={setEmail}
+            // value={email}
             keyboardType="email-address"
           />
           <TextInput
@@ -44,12 +43,12 @@ const LoginScreen = ({ navigation }) => {
             type="number"
             placeholder="Password"
             secureTextEntry
-            onChangeText={setPassword}
-            value={password}
+            // onChangeText={setPassword}
+            // value={password}
           />
           <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText} title="Log in" onPress={handleSubmit} disabled={isLoading}>Login</Text>
-            {error && <Text style={styles.error}>{error}</Text>}
+            <Text style={styles.buttonText} title="Log in" >Login</Text>
+            {/* {error && <Text style={styles.error}>{error}</Text>} */}
           </TouchableOpacity>
 
           <TouchableOpacity onPress={goToRegister}>
@@ -99,6 +98,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    marginBottom: 70,
   },
   input: {
     width: 300,

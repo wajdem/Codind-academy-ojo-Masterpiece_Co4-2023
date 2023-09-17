@@ -13,21 +13,21 @@ import {
 } from "react-native";
 
 const  LoginScreen = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confPassword, setConfPassword] = useState("");
-  const { signup, error, isLoading } = useSignup();
+  // const [username, setUsername] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [confPassword, setConfPassword] = useState("");
+  // const { signup, error, isLoading } = useSignup();
 
-  const handleSubmit = async () => {
-    // Perform password match validation
-    if (password !== confPassword) {
-      alert("Passwords do not match");
-      return;
-    }
+  // const handleSubmit = async () => {
+  //   // Perform password match validation
+  //   if (password !== confPassword) {
+  //     alert("Passwords do not match");
+  //     return;
+  //   }
 
-    await signup(username, email, password, confPassword);
-  };
+  //   await signup(username, email, password, confPassword);
+  // };
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -42,39 +42,39 @@ const  LoginScreen = () => {
           source={require("../assets/Mercedes.png")}
           style={styles.imagetwo}
         />
-        <View style={styles.login}>
+        <View style={styles.signup}>
           <TextInput 
             type="text" 
             placeholder="User Name" 
             style={styles.input} 
-            onChangeText={setUsername}
-            value={username}
+            // onChangeText={setUsername}
+            // value={username}
           />
           <TextInput 
             type="text" 
             placeholder="email" 
             style={styles.input} 
-            onChangeText={setEmail}
-            value={email}
+            // onChangeText={setEmail}
+            // value={email}
             keyboardType="email-address"
           />
           <TextInput
             style={styles.input}
-            onChangeText={setPassword}
-            value={password}
+            // onChangeText={setPassword}
+            // value={password}
             placeholder="Password"
             secureTextEntry
           />
           <TextInput
             style={styles.input}
-            onChangeText={setConfPassword}
-            value={confPassword}
+            // onChangeText={setConfPassword}
+            // value={confPassword}
             placeholder="Confirm password"
             secureTextEntry
           />
           <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText} title="Sign up" onPress={handleSubmit} disabled={isLoading}>Sign Up</Text>
-            {error && <Text style={styles.error}>{error}</Text>}
+            <Text style={styles.buttonText} title="Sign up">Sign Up</Text>
+            {/* {error && <Text style={styles.error}>{error}</Text>} */}
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "bold",
   },
-  login: {
+  signup: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
