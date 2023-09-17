@@ -15,7 +15,7 @@ export default function HomePage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentPhotoIndex((prevIndex) => (prevIndex + 1) % photos.length);
-    }, 5000);
+    }, 3500);
 
     return () => clearInterval(interval);
   }, []);

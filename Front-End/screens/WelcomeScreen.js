@@ -1,7 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity } from "react-native";
 
-export default function LoginScreen() {
+export default function WelcomeScreen({ navigation }) {
+
+  const goToLogin = () => {
+    navigation.navigate('Login'); // Assuming 'Login' is the name of your Login Screen
+  }
+
   return (
     <View style={styles.container}>
       <Image
@@ -13,7 +18,7 @@ export default function LoginScreen() {
         style={styles.image}
       />
       <Text style={styles.text}>Your Ride, Your Way!"</Text>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={goToLogin}>
         <Text style={styles.buttonText}>Let's Go</Text>
       </TouchableOpacity>
       <StatusBar style="auto" />
@@ -42,18 +47,18 @@ const styles = StyleSheet.create({
   },
   button: {
     width: 300,
-    height: 40,
+    height: 50,
     backgroundColor: "#ffffff",
     borderRadius: 50,
     paddingHorizontal: 54,
     paddingVertical: 10,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 20, // إضافة هامش من الأعلى للزر
+    marginTop: 20,
   },
   buttonText: {
     color: "#000000",
-    fontSize: 15,
+    fontSize: 25,
     fontWeight: "bold",
   },
   login: {

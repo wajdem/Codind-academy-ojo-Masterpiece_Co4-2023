@@ -1,7 +1,23 @@
+import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
+import { useLogin } from "../hooks/useLogin";
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, KeyboardAvoidingView } from "react-native";
 
-export default function LoginScreen() {
+const LoginScreen = ({ navigation }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { login, error, isLoading } = useLogin();
+
+
+  const handleSubmit = async () => {
+    await login(email, password);
+  };
+
+
+  const goToRegister = () => {
+    navigation.navigate('Register'); // Assuming 'Register' is the name of your Register Screen
+  }
+
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <View style={styles.container}>
@@ -19,16 +35,27 @@ export default function LoginScreen() {
             type="text"
             placeholder="email"
             style={styles.input}
+            onChangeText={setEmail}
+            value={email}
+            keyboardType="email-address"
           />
           <TextInput
             style={styles.input}
             type="number"
             placeholder="Password"
             secureTextEntry
+            onChangeText={setPassword}
+            value={password}
           />
           <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Login</Text>
+            <Text style={styles.buttonText} title="Log in" onPress={handleSubmit} disabled={isLoading}>Login</Text>
+            {error && <Text style={styles.error}>{error}</Text>}
           </TouchableOpacity>
+
+          <TouchableOpacity onPress={goToRegister}>
+            <Text style={styles.signupText}>Don't have an account? Signup</Text>
+          </TouchableOpacity>
+
         </View>
         <StatusBar style="auto" />
       </View>
@@ -41,7 +68,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "rgb(44, 43, 52)",
     alignItems: "center",
-    justifyContent: "center", // Added this to center the content vertically
+    justifyContent: "center",
   },
   image: {
     width: 200,
@@ -70,7 +97,7 @@ const styles = StyleSheet.create({
   },
   login: {
     flex: 1,
-    alignItems: "center", // Added this to center the inputs and button
+    alignItems: "center",
     justifyContent: "center",
   },
   input: {
@@ -82,4 +109,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 8,
   },
+  signupText: {
+    color: "#ffffff",
+    fontSize: 15,
+    marginTop: 10,
+  },
+  error: {
+    color: "red",
+    marginTop: 10,
+  },
 });
+
+export default LoginScreen;
