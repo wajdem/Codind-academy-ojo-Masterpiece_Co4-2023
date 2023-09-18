@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { useSignup } from "../hooks/useSignup";
+// import { useSignup } from "../hooks/useSignup";
 import {
   StyleSheet,
   Text,
@@ -13,21 +13,7 @@ import {
 } from "react-native";
 
 const  LoginScreen = () => {
-  // const [username, setUsername] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [confPassword, setConfPassword] = useState("");
-  // const { signup, error, isLoading } = useSignup();
 
-  // const handleSubmit = async () => {
-  //   // Perform password match validation
-  //   if (password !== confPassword) {
-  //     alert("Passwords do not match");
-  //     return;
-  //   }
-
-  //   await signup(username, email, password, confPassword);
-  // };
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -56,7 +42,7 @@ const  LoginScreen = () => {
             style={styles.input} 
             // onChangeText={setEmail}
             // value={email}
-            keyboardType="email-address"
+            // keyboardType="email-address"
           />
           <TextInput
             style={styles.input}
@@ -73,7 +59,7 @@ const  LoginScreen = () => {
             secureTextEntry
           />
           <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText} title="Sign up">Sign Up</Text>
+            <Text style={styles.buttonText}>Sign Up</Text>
             {/* {error && <Text style={styles.error}>{error}</Text>} */}
           </TouchableOpacity>
         </View>

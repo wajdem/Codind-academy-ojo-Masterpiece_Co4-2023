@@ -15,7 +15,7 @@ const LoginScreen = ({ navigation }) => {
 
 
   const goToRegister = () => {
-    navigation.navigate('Register');
+    navigation.navigate('RegisterScreen');
   }
 
   return (
@@ -36,7 +36,7 @@ const LoginScreen = ({ navigation }) => {
             style={styles.input}
             // onChangeText={setEmail}
             // value={email}
-            keyboardType="email-address"
+            // keyboardType="email-address"
           />
           <TextInput
             style={styles.input}

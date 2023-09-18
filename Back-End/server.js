@@ -1,27 +1,36 @@
-require("dotenv").config(); 
+require('dotenv').config()
 
-const express = require("express"); 
-const mongoose = require("mongoose");
-const userRoutes = require("./routes/user"); 
-const app = express();
+const express = require('express')
+const mongoose = require('mongoose')
+const userRoutes = require('./routes/user')
+const carRoutes = require('./routes/car');
 
-app.use(express.json());
+
+// express app
+const app = express()
+
+// middleware
+app.use(express.json())
 
 app.use((req, res, next) => {
-  console.log(req.path, req.method);
-  next();
-});
+  console.log(req.path, req.method)
+  next()
+})
 
-app.use("/api/user", userRoutes);
+// routes
+app.use('/api/user', userRoutes)
+app.use('/api/car', carRoutes);
 
-mongoose.set("strictQuery", false);
-mongoose
-  .connect(process.env.MONG_URL)
+
+// connect to db
+mongoose.set('strictQuery', true);
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
+    // listen for requests
     app.listen(process.env.PORT, () => {
-      console.log('Connected to the database & listening on port', process.env.PORT);
-    });
+      console.log('connected to db & listening on port', process.env.PORT)
+    })
   })
   .catch((error) => {
-    console.log(error);
-  });
+    console.log(error)
+  })

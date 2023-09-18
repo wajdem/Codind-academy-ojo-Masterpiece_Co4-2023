@@ -1,31 +1,26 @@
-import { View, Text } from "react-native";
-import React from "react";
-import { useAuthContext } from "./hooks/useAuthContext";
-import { createStackNavigator } from "@react-navigation/stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from "./screens/HomePage";
-import Login from "./screens/LoginScreen";
-import Signup from "./screens/RegisterScreen";
+// import React from 'react';
+// import { createStackNavigator } from '@react-navigation/stack';
+// import WelcomeScreen from './screens/WelcomeScreen';
+// import LoginScreen from './screens/LoginScreen';
+// import RegisterScreen from './screens/RegisterScreen';
+// import HomeScreen from './screens/HomeScreen';
+// import CarScreen from './screens/CarScreen';
+// import DetailsScreen from './screens/DetailsScreen';
 
 
-export default function Navigator() {
-  const { user } = useAuthContext();
+// const Stack = createStackNavigator();
 
-  const Stack = createStackNavigator();
-  const Tab = createBottomTabNavigator();
+// function Navigator() {
+//   return (
+//     <Stack.Navigator>
+//         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+//         <Stack.Screen name="LoginScreen" component={LoginScreen} />
+//         <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+//         <Stack.Screen name="HomeScreen" component={HomeScreen} />
+//         <Stack.Screen name="CarScreen" component={CarScreen} />
+//         <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
+//     </Stack.Navigator>
+//   );
+// }
 
-  return (
-    <>
-      {user ? (
-        <Tab.Navigator>
-          <Tab.Screen name="Home" component={Home} />
-        </Tab.Navigator>
-      ) : (
-        <Stack.Navigator>
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Signup" component={Signup} />
-        </Stack.Navigator>
-      )}
-    </>
-  );
-}
+// export default Navigator;
