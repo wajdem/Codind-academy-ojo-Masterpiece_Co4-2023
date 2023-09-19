@@ -8,18 +8,16 @@ export const useSignup = () => {
   const { dispatch } = useAuthContext();
 
 
-  const signup = async (username, email, password, confPassword) => {
+  const signup = async (username, phoneNumber, email, password) => {
     setIsLoading(true);
     setError(null);
 
     try {
-      const response = await fetch(`https://41b6-109-107-224-187.ngrok.io/api/user/signup`, {
+      const response = await fetch(`https://ad8f-37-220-117-231.ngrok.io/api/user/signup`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ username, email, password, confPassword })
+        body: JSON.stringify({ username, phoneNumber, email, password })
       });
-      
-      
       const json = await response.json();
 
       if (!response.ok) {

@@ -1,40 +1,57 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView} from "react-native";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useRoute } from '@react-navigation/native';
+
 
 
 export default function DetailsScreen() {
+  const route = useRoute();
+  const { carId } = route.params;
+  const [carDetails, setCarDetails] = useState(null);
+
+  useEffect(() => {
+    // Fetch car details based on carId
+    fetch(`https://96c0-37-220-117-231.ngrok.io/api/car/all-cars/${carId}`)
+      .then(response => response.json())
+      .then(data => setCarDetails(data))
+      .catch(error => console.error('Error:', error));
+  }, [carId]);
+
+  if (!carDetails) {
+    return <Text>Loading...</Text>;
+  }
+
   return (
     <View style={styles.container}>
       <Image
         source={require("../assets/Mercedes-Benz.png")}
         style={styles.image}
       />
-      <Text style={styles.carName}>Mercedes Benz CLE</Text>
+      <Text style={styles.carName}>{carDetails.company} {carDetails.name}</Text>
       <View style={styles.cardContainer}>
       <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.cardScroll}>
-
         <View style={styles.card}>
         <Icon name="calendar" size={35} color="#282931" />
-          <Text style={styles.text}>2023</Text>
+          <Text style={styles.text}>{carDetails.manufactureDate}</Text>
         </View>
         <View style={styles.card}>
         <Icon name="cogs" size={35} color="#282931" />
-          <Text style={styles.text}>1332cc</Text>
+          <Text style={styles.text}>{carDetails.engineCapacity}</Text>
         </View>
         <View style={styles.card}>
         <Icon name="tachometer" size={35} color="#282931" />
-          <Text style={styles.text}>123/km</Text>
+          <Text style={styles.text}>{carDetails.speed}/km</Text>
         </View>
         <View style={styles.card}>
         <Icon name="tint" size={35} color="#282931" />
-          <Text style={styles.text}>petrol</Text>
+          <Text style={styles.text}>{carDetails.fuelType}</Text>
         </View>
         <View style={styles.card}>
         <Icon name="car" size={35} color="#282931" />
-          <Text style={styles.text}>new</Text>
+          <Text style={styles.text}>{carDetails.condition}</Text>
         </View>
         </ScrollView>
 

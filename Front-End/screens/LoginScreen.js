@@ -1,18 +1,7 @@
-// import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-// import { useLogin } from "../hooks/useLogin";
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, KeyboardAvoidingView } from "react-native";
 
 const LoginScreen = ({ navigation }) => {
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const { login, error, isLoading } = useLogin();
-
-
-  // const handleSubmit = async () => {
-  //   await login(email, password);
-  // };
-
 
   const goToRegister = () => {
     navigation.navigate('RegisterScreen');
@@ -34,23 +23,16 @@ const LoginScreen = ({ navigation }) => {
             type="text"
             placeholder="email"
             style={styles.input}
-            // onChangeText={setEmail}
-            // value={email}
-            // keyboardType="email-address"
           />
           <TextInput
             style={styles.input}
             type="number"
             placeholder="Password"
             secureTextEntry
-            // onChangeText={setPassword}
-            // value={password}
           />
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText} title="Log in" >Login</Text>
-            {/* {error && <Text style={styles.error}>{error}</Text>} */}
           </TouchableOpacity>
-
           <TouchableOpacity onPress={goToRegister}>
             <Text style={styles.signupText}>Don't have an account? Signup</Text>
           </TouchableOpacity>

@@ -1,6 +1,5 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-// import { useSignup } from "../hooks/useSignup";
 import {
   StyleSheet,
   Text,
@@ -12,8 +11,7 @@ import {
   ScrollView,
 } from "react-native";
 
-const  LoginScreen = () => {
-
+const SignupScreen = () => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -29,45 +27,27 @@ const  LoginScreen = () => {
           style={styles.imagetwo}
         />
         <View style={styles.signup}>
-          <TextInput 
-            type="text" 
-            placeholder="User Name" 
-            style={styles.input} 
-            // onChangeText={setUsername}
-            // value={username}
-          />
-          <TextInput 
-            type="text" 
-            placeholder="email" 
-            style={styles.input} 
-            // onChangeText={setEmail}
-            // value={email}
-            // keyboardType="email-address"
-          />
+          <TextInput type="text" placeholder="User Name" style={styles.input} />
           <TextInput
             style={styles.input}
-            // onChangeText={setPassword}
-            // value={password}
-            placeholder="Password"
+            placeholder="Phone"
             secureTextEntry
           />
+          <TextInput type="text" placeholder="email" style={styles.input} />
           <TextInput
             style={styles.input}
-            // onChangeText={setConfPassword}
-            // value={confPassword}
-            placeholder="Confirm password"
+            placeholder="Password"
             secureTextEntry
           />
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Sign Up</Text>
-            {/* {error && <Text style={styles.error}>{error}</Text>} */}
           </TouchableOpacity>
         </View>
       </ScrollView>
       <StatusBar style="auto" />
     </KeyboardAvoidingView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -125,4 +105,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default SignupScreen;

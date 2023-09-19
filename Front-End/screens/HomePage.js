@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image, TouchableOpacity  } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+
+const carsData = [
+  { company: "BMW", name: "X5" },
+  { company: "Mercedes-Benz", name: "C-Class" },
+];
 
 const photos = [
   require("../assets/BMW_X5.png"),
@@ -11,6 +17,12 @@ const photos = [
 
 export default function HomePage() {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+  const navigation = useNavigation();
+  // const bmwCars = carsData.filter(car => car.company === "BMW");
+
+  const handleCardPress = (company) => {
+    navigation.navigate('Car', { company });
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -24,37 +36,37 @@ export default function HomePage() {
     <View style={styles.container}>
       <Image source={photos[currentPhotoIndex]} style={styles.image} />
       <View style={styles.cardContainer}>
-        <TouchableOpacity  style={styles.card}>
+        <TouchableOpacity  style={styles.card} onPress={() => handleCardPress("BMW")}>
           <Image
             source={require("../assets/BMW_logo_PNG1.png")}
             style={styles.carImage1}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.card}>
+        <TouchableOpacity onPress={() => handleCardPress("Mercedes-Benz")} style={styles.card}>
           <Image
             source={require("../assets/Mercedes_logo_PNG19.png")}
             style={styles.carImage2}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.card}>
+        <TouchableOpacity onPress={() => handleCardPress("Jeep")} style={styles.card}>
           <Image
             source={require("../assets/Jeep_logo_PNG2.png")}
             style={styles.carImage3}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.card}>
+        <TouchableOpacity onPress={() => handleCardPress("Chevrolet")} style={styles.card}>
           <Image
             source={require("../assets/Chevrolet_logo_PNG3.png")}
             style={styles.carImage4}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.card}>
+        <TouchableOpacity onPress={() => handleCardPress("Porsche")} style={styles.card}>
           <Image
             source={require("../assets/Porsche_logo_PNG5.png")}
             style={styles.carImage5}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.card}>
+        <TouchableOpacity onPress={() => handleCardPress("Toyota")} style={styles.card}>
           <Image
             source={require("../assets/Toyota_logo_PNG15.png")}
             style={styles.carImage6}

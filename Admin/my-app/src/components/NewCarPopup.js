@@ -26,10 +26,7 @@ const NewCarPopup = () => {
         condition,
       });
       console.log("API call successful:", response.data);
-      setCarAdded(true);
-      setTimeout(() => {
-        setIsOpen(false);
-      }, 2000);
+      setCarAdded(true); // Set the carAdded state to true
     } catch (error) {
       console.error("Error creating car listing:", error);
     }
@@ -42,8 +39,6 @@ const NewCarPopup = () => {
   if (!isOpen) {
     return null;
   }
-  
-
   return (
     <div className="edit-popup">
       {carAdded ? (

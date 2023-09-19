@@ -8,6 +8,9 @@ router.post('/new-cars', carController.createNewCar);
 // Get all cars
 router.get('/all-cars', carController.getAllCars);
 
+router.get('/all-cars/:id', carController.getCarById);
+
+
 // Update a car
 router.patch('/patsh-cars/:id', carController.updateCar);
 
