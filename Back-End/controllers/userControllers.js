@@ -18,6 +18,23 @@ const getAllUser = async (req, res) => {
 };
 
 
+// Delete users
+const deleteUser = async (req, res) => {
+  const userId = req.params.id;
+
+  try {
+    const deletedUser = await User.findByIdAndDelete(userId);
+
+    if (!deletedUser) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    res.status(200).json({ message: 'User deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 // login a user
 const loginUser = async (req, res) => {
   const {email, password} = req.body
@@ -51,4 +68,4 @@ const signupUser = async (req, res) => {
 };
 
 
-module.exports = { signupUser, loginUser, getAllUser}
+module.exports = { signupUser, loginUser, getAllUser, deleteUser}
