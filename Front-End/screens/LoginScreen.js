@@ -1,11 +1,43 @@
+import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, KeyboardAvoidingView } from "react-native";
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
-  const goToRegister = () => {
-    navigation.navigate('RegisterScreen');
-  }
+  const handleInputChange = (name, value) => {
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleLogin = async () => {
+    try {
+      const response = await fetch('https://5078-94-249-0-62.ngrok.io/api/user/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Handle successful login here
+        console.log("Login successful:", data);
+      } else {
+        // Handle login error here
+        console.error("Login failed:", data.error);
+      }
+    } catch (error) {
+      console.error("Error logging in:", error);
+    }
+  };
 
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
@@ -20,30 +52,27 @@ const LoginScreen = ({ navigation }) => {
         />
         <View style={styles.login}>
           <TextInput
-            type="text"
-            placeholder="email"
+            placeholder="Email"
             style={styles.input}
+            value={formData.email}
+            onChangeText={(text) => handleInputChange("email", text)}
           />
           <TextInput
-            style={styles.input}
-            type="number"
             placeholder="Password"
+            style={styles.input}
             secureTextEntry
+            value={formData.password}
+            onChangeText={(text) => handleInputChange("password", text)}
           />
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText} title="Log in" >Login</Text>
+          <TouchableOpacity style={styles.button} onPress={handleLogin}>
+            <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={goToRegister}>
-            <Text style={styles.signupText}>Don't have an account? Signup</Text>
-          </TouchableOpacity>
-
         </View>
         <StatusBar style="auto" />
       </View>
     </KeyboardAvoidingView>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

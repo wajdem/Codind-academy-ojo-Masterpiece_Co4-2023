@@ -27,18 +27,7 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    // validate: {
-    //   validator: (value) => {
-    //     return validator.isStrongPassword(value, {
-    //       minLength: 8,
-    //       minLowercase: 1,
-    //       minUppercase: 1,
-    //       minNumbers: 1,
-    //       minSymbols: 1,
-    //     });
-    //   },
-    //   message: "Password not strong enough",
-    // },
+
   },
 });
 

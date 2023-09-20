@@ -63,7 +63,7 @@ const UpdatePopup = ({ car, onClose }) => {
           />
           <label>Manufacture Date:</label>
           <input
-            type="Date"
+            type="Number"
             name="manufactureDate"
             value={formData.manufactureDate}
             onChange={handleInputChange}

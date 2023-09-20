@@ -68,14 +68,14 @@ const JobListPage = () => {
         <table>
           <thead>
             <tr>
-              <th>company</th>
-              <th>name</th>
-              <th>price</th>
-              <th>manufactureDate</th>
-              <th>engineCapacity</th>
-              <th>speed</th>
-              <th>fuelType</th>
-              <th>condition</th>
+              <th>Company</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Date</th>
+              <th>Engine</th>
+              <th>Speed</th>
+              <th>Fuel Type</th>
+              <th>Condition</th>
               <th>Delete</th>
               <th>Update</th>
             </tr>

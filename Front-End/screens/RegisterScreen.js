@@ -1,17 +1,48 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  KeyboardAvoidingView,
-  ScrollView,
-} from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, ScrollView } from "react-native";
 
-const SignupScreen = () => {
+const SignupScreen = ({ navigation }) => {
+  const [formData, setFormData] = useState({
+    username: "",
+    phoneNumber: "",
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (name, value) => {
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSignup = async () => {
+    try {
+      const response = await fetch('https://5078-94-249-0-62.ngrok.io/api/user/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Handle successful signup here
+        console.log("Signup successful:", data);
+
+        // Navigate back to LoginScreen after successful signup
+        navigation.navigate('Login');
+      } else {
+        // Handle signup error here
+        console.error("Signup failed:", data.error);
+      }
+    } catch (error) {
+      console.error("Error signing up:", error);
+    }
+  };
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -27,19 +58,32 @@ const SignupScreen = () => {
           style={styles.imagetwo}
         />
         <View style={styles.signup}>
-          <TextInput type="text" placeholder="User Name" style={styles.input} />
           <TextInput
+            placeholder="User Name"
             style={styles.input}
+            value={formData.username}
+            onChangeText={(text) => handleInputChange("username", text)}
+          />
+          <TextInput
             placeholder="Phone"
-            secureTextEntry
-          />
-          <TextInput type="text" placeholder="email" style={styles.input} />
-          <TextInput
             style={styles.input}
-            placeholder="Password"
-            secureTextEntry
+            value={formData.phoneNumber}
+            onChangeText={(text) => handleInputChange("phoneNumber", text)}
           />
-          <TouchableOpacity style={styles.button}>
+          <TextInput
+            placeholder="Email"
+            style={styles.input}
+            value={formData.email}
+            onChangeText={(text) => handleInputChange("email", text)}
+          />
+          <TextInput
+            placeholder="Password"
+            style={styles.input}
+            secureTextEntry
+            value={formData.password}
+            onChangeText={(text) => handleInputChange("password", text)}
+          />
+          <TouchableOpacity style={styles.button} onPress={handleSignup}>
             <Text style={styles.buttonText}>Sign Up</Text>
           </TouchableOpacity>
         </View>

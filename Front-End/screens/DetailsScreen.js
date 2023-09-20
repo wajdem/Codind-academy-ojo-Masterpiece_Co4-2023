@@ -9,16 +9,16 @@ import { useRoute } from '@react-navigation/native';
 
 export default function DetailsScreen() {
   const route = useRoute();
-  const { carId } = route.params;
+  const { carsId } = route.params;
   const [carDetails, setCarDetails] = useState(null);
 
   useEffect(() => {
     // Fetch car details based on carId
-    fetch(`https://96c0-37-220-117-231.ngrok.io/api/car/all-cars/${carId}`)
+    fetch(`https://5078-94-249-0-62.ngrok.io/api/car/all-cars/${carsId}`)
       .then(response => response.json())
       .then(data => setCarDetails(data))
       .catch(error => console.error('Error:', error));
-  }, [carId]);
+  }, [carsId]);
 
   if (!carDetails) {
     return <Text>Loading...</Text>;
@@ -46,7 +46,7 @@ export default function DetailsScreen() {
           <Text style={styles.text}>{carDetails.speed}/km</Text>
         </View>
         <View style={styles.card}>
-        <Icon name="tint" size={35} color="#282931" />
+        <Icon name="tint" size={33} color="#282931" />
           <Text style={styles.text}>{carDetails.fuelType}</Text>
         </View>
         <View style={styles.card}>
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
 
   },
   text: {
-    fontSize: 20,
+    fontSize: 18,
     padding: 10,
     textAlign: "center",
   },

@@ -67,7 +67,7 @@ const NewCarPopup = () => {
           />
           <label>Manufacture Date:</label>
           <input
-            type="date"
+            type="Number"
             value={manufactureDate}
             onChange={(e) => setManufactureDate(e.target.value)}
           />

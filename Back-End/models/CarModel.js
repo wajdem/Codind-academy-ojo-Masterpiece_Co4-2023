@@ -14,7 +14,7 @@ const carSchema = new mongoose.Schema({
     required: true
   },
   manufactureDate: {
-    type: Date,
+    type: Number,
     required: true
   },
   engineCapacity: {

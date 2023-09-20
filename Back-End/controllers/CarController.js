@@ -13,6 +13,7 @@ exports.createNewCar = async (req, res) => {
 
 // Get a single car by ID
 exports.getCarById = async (req, res) => {
+  console.log(req.body);
   try {
     const car = await Car.findById(req.params.id);
     if (!car) {

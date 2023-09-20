@@ -44,12 +44,12 @@ const CarCard = ({route }) => {
 
   const navigation = useNavigation();
 
-  const handleCarPress = () => {
-    navigation.navigate('CarDetails', { carId: 'your_car_id_here' });
+  const handleCarPress = (carsId) => {
+    navigation.navigate('CarDetails', { carsId });
   };
 
   useEffect(() => {
-    fetch('https://96c0-37-220-117-231.ngrok.io/api/car/all-cars')
+    fetch('https://5078-94-249-0-62.ngrok.io/api/car/all-cars')
       .then(response => response.json())
       .then(data => {
         const filteredCars = data.filter(car => car.company === company);
@@ -60,8 +60,8 @@ const CarCard = ({route }) => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {cars.map((car, index) => (
-      <TouchableOpacity key={index} style={styles.card} onPress={handleCarPress}>
+      {cars.map((car) => (
+      <TouchableOpacity key={car._id} style={styles.card} onPress={() => handleCarPress(car._id)}>
           {/* <Image source={car.image} style={styles.carImage} /> */}
         <View style={styles.cardContent}>
           <Text style={styles.carName}>{car.name}</Text>

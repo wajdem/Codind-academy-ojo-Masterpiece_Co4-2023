@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity } fr
 export default function WelcomeScreen({ navigation }) {
 
   const goToLogin = () => {
-    navigation.navigate('LoginScreen'); // Use the correct screen name
+    navigation.navigate('Login');
   }
   
   return (
