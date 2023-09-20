@@ -1,6 +1,16 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  ScrollView,
+  Platform,
+} from "react-native";
 
 const SignupScreen = ({ navigation }) => {
   const [formData, setFormData] = useState({
@@ -19,7 +29,7 @@ const SignupScreen = ({ navigation }) => {
 
   const handleSignup = async () => {
     try {
-      const response = await fetch('https://5078-94-249-0-62.ngrok.io/api/user/signup', {
+      const response = await fetch('https://8156-94-249-0-62.ngrok.io/api/user/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -33,16 +43,19 @@ const SignupScreen = ({ navigation }) => {
         // Handle successful signup here
         console.log("Signup successful:", data);
 
-        // Navigate back to LoginScreen after successful signup
+        // Navigate to LoginScreen after successful signup
         navigation.navigate('Login');
       } else {
         // Handle signup error here
-        console.error("Signup failed:", data.error);
+        console.error("Signup failed:", data.error || "Unknown error");
+        // Optionally, show an error message to the user
       }
     } catch (error) {
       console.error("Error signing up:", error);
+      // Optionally, show an error message to the user
     }
   };
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}

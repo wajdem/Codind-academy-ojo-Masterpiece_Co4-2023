@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image, TouchableOpacity  } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 
+
 const carsData = [
   { company: "BMW", name: "X5" },
   { company: "Mercedes-Benz", name: "C-Class" },
