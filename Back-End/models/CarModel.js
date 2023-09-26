@@ -5,14 +5,6 @@ const carSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  avatar: {
-    type: String,
-    // required: true
-  },
-  cloudinary_id: {
-    type: String,
-    // required: true
-  },
   name: {
     type: String,
     // required: true
@@ -40,6 +32,9 @@ const carSchema = new mongoose.Schema({
   condition: {
     type: String,
     required: true
+  }, 
+  img:{
+    uri:String
   }
 });
 

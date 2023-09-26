@@ -49,7 +49,7 @@ const CarCard = ({route }) => {
   };
 
   useEffect(() => {
-    fetch('https://e3e6-94-249-0-61.ngrok.io/api/car/all-cars')
+    fetch('https://7248-37-220-118-20.ngrok.io/api/car/all-cars')
       .then(response => response.json())
       .then(data => {
         const filteredCars = data.filter(car => car.company === company);
@@ -62,7 +62,7 @@ const CarCard = ({route }) => {
     <ScrollView contentContainerStyle={styles.container}>
       {cars.map((car) => (
       <TouchableOpacity key={car._id} style={styles.card} onPress={() => handleCarPress(car._id)}>
-          {/* <Image source={car.image} style={styles.carImage} /> */}
+          <Image source={{uri:car.img.uri}} style={styles.carImage} />
         <View style={styles.cardContent}>
           <Text style={styles.carName}>{car.name}</Text>
           <Text style={styles.carPrice}>{car.price}$</Text>
@@ -100,10 +100,10 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   carImage: {
-    width: 145,
-    marginTop: 20,
+    width: 165,
+    marginTop: 18,
     marginLeft: 7,
-    height: 80,
+    height: 95,
     resizeMode: "cover",
   },
   cardContent: {

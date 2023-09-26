@@ -3,6 +3,8 @@ import axios from "axios";
 
 const NewCarPopup = () => {
   const [company, setCompany] = useState("");
+  const [img, setImg] = useState({uri:""}
+  );
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [manufactureDate, setManufactureDate] = useState("");
@@ -24,6 +26,7 @@ const NewCarPopup = () => {
         speed,
         fuelType,
         condition,
+        img,
       });
       console.log("API call successful:", response.data);
       setCarAdded(true);
@@ -47,53 +50,69 @@ const NewCarPopup = () => {
         </div>
       ) : (
         <div className="popup-content">
-          <label >Company:</label >
+          <label >Add New Car</label >
+          {/* <label >Company:</label > */}
           <input
             type="String"
+            placeholder="Company"
             value={company}
             onChange={(e) => setCompany(e.target.value)}
           />
-          <label >Name:</label >
+          {/* <label >Name:</label > */}
           <input
             type="String"
+            placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <label >Price:</label >
+          {/* <label >Price:</label > */}
           <input
             type="Number"
+            placeholder="Price"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-          <label >Manufacture Date:</label >
+          {/* <label >Manufacture Date:</label > */}
           <input
             type="Number"
+            placeholder="Manufacture Date"
             value={manufactureDate}
             onChange={(e) => setManufactureDate(e.target.value)}
           />
-          <label >Engine Capacity:</label >
+          {/* <label >Engine Capacity:</label > */}
           <input
             type="Number"
+            placeholder="Engine Capacity"
             value={engineCapacity}
             onChange={(e) => setEngineCapacity(e.target.value)}
           />
-          <label >Speed:</label >
+          {/* <label >Speed:</label > */}
           <input
             type="Number"
+            placeholder="Speed"
             value={speed}
             onChange={(e) => setSpeed(e.target.value)}
           />
-          <label >Fuel Type:</label >
+          {/* <label >Fuel Type:</label > */}
           <input
             type="String"
+            placeholder="Fuel Type"
             value={fuelType}
             onChange={(e) => setFuelType(e.target.value)}
           />
-          <label >Condition:</label >
+          {/* <label >Condition:</label > */}
           <input
             type="String"
+            placeholder="Condition"
             value={condition}
             onChange={(e) => setCondition(e.target.value)}
+          />
+          {/* <label >Img Car:</label > */}
+          <input
+            type="String"
+            placeholder="Img Car (URI)"
+            value={img.uri}
+            onChange={(e) => setImg((prev)=>({...prev,uri:e.target.value}))}
           />
           <div style={{ display: "flex", gap: "79px" }}>
             <button className="button-student" onClick={handleSubmit}>

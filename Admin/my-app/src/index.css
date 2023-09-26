@@ -235,12 +235,12 @@ table {
  
  .popup-content input {
    width: calc(100% - 12px);
-   padding: 6px;
+   padding: 9px;
    margin-bottom: 10px;
    border: 1px solid #ccc;
    border-radius: 4px;
-   font-size: 12px;
- }
+   font-size: 16px;
+}
  .four_buttons{
    display: flex;
    gap: 286px;

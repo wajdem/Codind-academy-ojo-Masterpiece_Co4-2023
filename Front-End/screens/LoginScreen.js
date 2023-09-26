@@ -36,7 +36,7 @@ const LoginScreen = () => {
   const handleLogin = async () => {
     try {
       const response = await fetch(
-        "https://e3e6-94-249-0-61.ngrok.io/api/user/login",
+        "https://7248-37-220-118-20.ngrok.io/api/user/login",
         {
           method: "POST",
           headers: {
@@ -97,7 +97,6 @@ const LoginScreen = () => {
                 color="rgb(44, 43, 52)"
               />
             </TouchableOpacity>
-          </View>
           <TouchableOpacity style={styles.button} onPress={handleLogin}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
@@ -107,6 +106,7 @@ const LoginScreen = () => {
               <Text style={{ color: "blue", fontSize: 17 }}>SignUp</Text>
             </Text>
           </TouchableOpacity>
+        </View>
         </View>
         <StatusBar style="auto" />
       </View>
@@ -150,6 +150,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 70,
+    position: "relative",
+    width: "100%",
   },
   signupText: {
     color: "#ffffff",
@@ -166,8 +168,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   inputContainer: {
-    position: "relative",
-    width: "100%",
+
   },
   icon: {
     position: "absolute",
@@ -178,6 +179,7 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     fontSize: 15,
     marginTop: 10,
+    marginLeft:50,
   },
   error: {
     color: "red",

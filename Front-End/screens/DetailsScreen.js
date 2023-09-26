@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Modal, Pressable} from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+  Modal,
+  Pressable,
+} from "react-native";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { useRoute } from '@react-navigation/native';
-import { useNavigation } from '@react-navigation/native';
-
-
-
-
+import Icon from "react-native-vector-icons/FontAwesome";
+import { useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
+import { Feather } from "@expo/vector-icons";
 
 export default function DetailsScreen() {
   const route = useRoute();
@@ -17,13 +23,12 @@ export default function DetailsScreen() {
   const [isReserved, setIsReserved] = useState(false);
   const navigation = useNavigation();
 
-
   useEffect(() => {
     // Fetch car details based on carId
-    fetch(`https://e3e6-94-249-0-61.ngrok.io/api/car/all-cars/${carsId}`)
-      .then(response => response.json())
-      .then(data => setCarDetails(data))
-      .catch(error => console.error('Error:', error));
+    fetch(`https://7248-37-220-118-20.ngrok.io/api/car/all-cars/${carsId}`)
+      .then((response) => response.json())
+      .then((data) => setCarDetails(data))
+      .catch((error) => console.error("Error:", error));
   }, [carsId]);
 
   const reserveCar = () => {
@@ -36,35 +41,43 @@ export default function DetailsScreen() {
 
   return (
     <View style={styles.container}>
-      <Image
-        source={require("../assets/Mercedes-Benz.png")}
-        style={styles.image}
-      />
-      <Text style={styles.carName}>{carDetails.company} {carDetails.name}</Text>
+      <TouchableOpacity
+        style={styles.profileIcon}
+        onPress={() => navigation.navigate("ProfileScreen")}
+      >
+        <Feather name="user" size={34} color="#ffffff" />
+      </TouchableOpacity>
+      <Image source={{ uri: carDetails.img.uri }} style={styles.image} />
+      <Text style={styles.carName}>
+        {carDetails.company} {carDetails.name}
+      </Text>
       <View style={styles.cardContainer}>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.cardScroll}>
-        <View style={styles.card}>
-        <Icon name="calendar" size={35} color="#282931" />
-          <Text style={styles.text}>{carDetails.manufactureDate}</Text>
-        </View>
-        <View style={styles.card}>
-        <Icon name="cogs" size={35} color="#282931" />
-          <Text style={styles.text}>{carDetails.engineCapacity}</Text>
-        </View>
-        <View style={styles.card}>
-        <Icon name="tachometer" size={35} color="#282931" />
-          <Text style={styles.text}>{carDetails.speed}/km</Text>
-        </View>
-        <View style={styles.card}>
-        <Icon name="tint" size={33} color="#282931" />
-          <Text style={styles.text}>{carDetails.fuelType}</Text>
-        </View>
-        <View style={styles.card}>
-        <Icon name="car" size={35} color="#282931" />
-          <Text style={styles.text}>{carDetails.condition}</Text>
-        </View>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.cardScroll}
+        >
+          <View style={styles.card}>
+            <Icon name="calendar" size={35} color="#282931" />
+            <Text style={styles.text}>{carDetails.manufactureDate}</Text>
+          </View>
+          <View style={styles.card}>
+            <Icon name="cogs" size={35} color="#282931" />
+            <Text style={styles.text}>{carDetails.engineCapacity}</Text>
+          </View>
+          <View style={styles.card}>
+            <Icon name="tachometer" size={35} color="#282931" />
+            <Text style={styles.text}>{carDetails.speed}/km</Text>
+          </View>
+          <View style={styles.card}>
+            <Icon name="tint" size={33} color="#282931" />
+            <Text style={styles.text}>{carDetails.fuelType}</Text>
+          </View>
+          <View style={styles.card}>
+            <Icon name="car" size={35} color="#282931" />
+            <Text style={styles.text}>{carDetails.condition}</Text>
+          </View>
         </ScrollView>
-
       </View>
       <View style={styles.mapContainer}>
         <MapView
@@ -84,10 +97,7 @@ export default function DetailsScreen() {
           />
         </MapView>
       </View>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => reserveCar()}
-      >
+      <TouchableOpacity style={styles.button} onPress={() => reserveCar()}>
         <Text style={styles.buttonText}>Book Now</Text>
       </TouchableOpacity>
 
@@ -108,7 +118,7 @@ export default function DetailsScreen() {
               style={styles.okButton}
               onPress={() => {
                 setIsReserved(false);
-                navigation.navigate('HomePage');
+                navigation.navigate("HomePage");
               }}
             >
               <Text style={styles.okButtonText}>OK</Text>
@@ -128,9 +138,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#2c2b34",
     alignItems: "center",
   },
+  profileIcon: {
+    position: 'absolute',
+    top: 15,
+    right: 15,
+    zIndex: 10,
+  },
   image: {
-    width: 360,
-    height: 180,
+    width: 390,
+    height: 190,
     resizeMode: "cover",
     marginTop: 55,
   },
@@ -158,8 +174,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     alignSelf: "center",
     margin: 5,
-    marginLeft:13,
-
+    marginLeft: 13,
   },
   text: {
     fontSize: 18,

@@ -3,6 +3,7 @@ const Car = require('../models/CarModel');
 // Create a new car
 exports.createNewCar = async (req, res) => {
   try {
+    console.log(req.body)
     const car = new Car(req.body);
     const savedCar = await car.save();
     res.status(201).json(savedCar);

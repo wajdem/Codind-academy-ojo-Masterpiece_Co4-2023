@@ -36,7 +36,7 @@ const SignupScreen = ({ navigation }) => {
   const handleSignup = async () => {
     try {
       const response = await fetch(
-        "https://e3e6-94-249-0-61.ngrok.io/api/user/signup",
+        "https://7248-37-220-118-20.ngrok.io/api/user/signup",
         {
           method: "POST",
           headers: {
@@ -142,6 +142,7 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     resizeMode: "contain",
+    marginLeft:88,
   },
   imagetwo: {
     height: 200,

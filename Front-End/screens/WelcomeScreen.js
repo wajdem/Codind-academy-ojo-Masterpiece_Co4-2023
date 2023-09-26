@@ -10,7 +10,7 @@ export default function WelcomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../assets/Mercedes-Benz.png")}
+        source={require("../assets/21fbfee4c031eca30e259863eff57e09-removebg-preview.png")}
         style={styles.imagetwo}
       />
       <Image
@@ -39,12 +39,12 @@ const styles = StyleSheet.create({
     height: 200,
     resizeMode: "contain",
     marginRight: 65,
-    marginTop: 20,
+    // marginBottom: 20,
   },
   imagetwo: {
-    height: 220,
+    height: 400,
     resizeMode: "contain",
-    marginRight: 100,
+    marginRight: 170,
   },
   button: {
     width: 300,
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 20,
+    marginBottom: 70,
   },
   buttonText: {
     color: "#000000",

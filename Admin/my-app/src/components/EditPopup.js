@@ -35,68 +35,71 @@ const UpdatePopup = ({ car, onClose }) => {
 
   return (
     <div className="edit-popup">
-        <div className="confirmation-message">
-          Car has been added successfully!
-        </div>
       <div className="popup-content">
         <form onSubmit={handleSubmit}>
-          <label>Company:</label>
+          {/* <label>Company:</label> */}
           <input
             type="String"
             name="company"
+            placeholder="Company"
             value={formData.company}
             onChange={handleInputChange}
           />
-          <label>Name:</label>
+          {/* <label>Name:</label> */}
           <input
             type="String"
             name="name"
+            placeholder="Name"
             value={formData.name}
             onChange={handleInputChange}
           />
-          <label>price:</label>
+          {/* <label>price:</label> */}
           <input
             type="Number"
             name="price"
+            placeholder="Price"
             value={formData.price}
             onChange={handleInputChange}
           />
-          <label>Manufacture Date:</label>
+          {/* <label>Manufacture Date:</label> */}
           <input
             type="Number"
             name="manufactureDate"
+            placeholder="Manufacture Date"
             value={formData.manufactureDate}
             onChange={handleInputChange}
           />
-          <label>Engine Capacity:</label>
+          {/* <label>Engine Capacity:</label> */}
           <input
             type="Number"
             name="engineCapacity"
+            placeholder="Engine Capacity"
             value={formData.engineCapacity}
             onChange={handleInputChange}
           />
-          <label>Speed:</label>
+          {/* <label>Speed:</label> */}
           <input
             type="Number"
             name="speed"
+            placeholder="Speed"
             value={formData.speed}
             onChange={handleInputChange}
           />
-          <label>Fuel Type:</label>
+          {/* <label>Fuel Type:</label> */}
           <input
             type="String"
             name="fuelType"
+            placeholder="Fuel Type"
             value={formData.fuelType}
             onChange={handleInputChange}
           />
-          <label>Condition:</label>
+          {/* <label>Condition:</label> */}
           <input
             type="String"
             name="condition"
             value={formData.condition}
             onChange={handleInputChange}
           />
-
           <div style={{ display: "flex", gap: "79px" }}>
             <button type="submit" className="button-student">
               Update Car

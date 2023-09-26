@@ -1,48 +1,53 @@
 BMW
 BMW M8
 
-Price: $140,000
+Price: 140
 Manufacture Date: 2023-09-15
 Engine Capacity: 4.4
 Speed: 193
 Fuel Type: Gasoline
 Condition: New
+img:https://o.remove.bg/downloads/d88cc954-7f95-463a-9c77-ab4a6c3efe25/7a2a9bf158a60467a5a55cdbb5d95ce1-removebg-preview.png
 
 
 BMW X7
-Price: $100,000
+Price: 100
 Manufacture Date: 2023-09-10
 Engine Capacity: 3.0
 Speed: 152
 Fuel Type: Hybrid
 Condition: New
+img:https://o.remove.bg/downloads/90bb3ad0-0f6a-4f1f-bd23-fe291aa7809c/aed26cd252fa99739aba563239c89a7a-removebg-preview.png
 
 
 BMW 3 Series
-Price: $55,000
+Price: 55
 Manufacture Date: 2023-09-05
 Engine Capacity: 2.0
 Speed: 155
 Fuel Type: Diesel
 Condition: New
+img:https://o.remove.bg/downloads/d89d64a9-bdf0-4077-8f74-00fad56ab973/f3786d6e52d006ab37102e1a8f59a71e-removebg-preview.png
 
 
 BMW i4
-Price: $60,000
+Price: 120
 Manufacture Date: 2023-09-03
 Engine Capacity: Electric
 Speed: 118
 Fuel Type: Electric
 Condition: New
+img:https://o.remove.bg/downloads/85b91533-9602-4486-97df-805ac2d601ca/f2a109acf90577611b2393f13090036b-removebg-preview.png
 
 
 BMW X3
-Price: $48,000
+Price: 85
 Manufacture Date: 2023-09-01
 Engine Capacity: 2.0
 Speed: 130
 Fuel Type: Gasoline
 Condition: New
+img:https://o.remove.bg/downloads/2fe0646b-ca14-4444-b847-7c88daee6280/be9f3f51514d122ff56dbbab42b20231-removebg-preview.png
 
 
 
@@ -51,48 +56,53 @@ Mercedes
 
 
 Mercedes-Benz S-Class
-Price: $105,000
+Price: 105
 Manufacture Date: 2023-09-18
 Engine Capacity: 3.0
 Speed: 155
 Fuel Type: Hybrid
 Condition: New
+img:https://o.remove.bg/downloads/e88641b7-e4f6-4bc5-a4c1-1914c68ec5ea/04b6678c5347350f0a6d70838fa04587-removebg-preview.png
 
 
 Mercedes-Benz GLE
-Price: $85,000
+Price: 85
 Manufacture Date: 2023-09-12
 Engine Capacity: 2.9
 Speed: 140
 Fuel Type: Diesel
 Condition: New
+img:https://o.remove.bg/downloads/4c40c8e4-003e-498a-b45b-cdecdf965b4e/c2ec13e39728b0bc1d4bdd02fdc3ff15-removebg-preview.png
 
 
 Mercedes-Benz A-Class
-Price: $40,000
+Price: 100
 Manufacture Date: 2023-09-08
 Engine Capacity: 2.0
 Speed: 155
 Fuel Type: Gasoline
 Condition: New
+img:https://o.remove.bg/downloads/263743a9-1c4a-4b1f-9dd8-2dea491e7d2a/2c07df933ea5a62b2055675c6666daae-removebg-preview.png
 
 
 Mercedes-Benz EQS
-Price: $120,000
+Price: 120
 Manufacture Date: 2023-09-04
 Engine Capacity: Electric
 Speed: 130
 Fuel Type: Electric
 Condition: New
+img:https://o.remove.bg/downloads/7951c73f-aff3-4619-9118-4f1dbc19b712/ee05d98e300d8f262a2db39287b48d23-removebg-preview.png
 
 
 Mercedes-Benz GLC
-Price: $52,000
+Price: 90
 Manufacture Date: 2023-09-02
 Engine Capacity: 2.0
 Speed: 145
 Fuel Type: Hybrid
 Condition: New
+img:https://o.remove.bg/downloads/bcac3da8-62e3-4f93-b1b8-98979cc3d077/e61c1892b77554de46a0a8855fac15f7-removebg-preview.png
 
 
 
@@ -100,48 +110,53 @@ Chevrolet
 
 
 Chevrolet Corvette
-Price: $65,000
+Price: 200
 Manufacture Date: 2023-09-14
 Engine Capacity: 6.2
 Speed: 194
 Fuel Type: Gasoline
 Condition: New
+img:https://o.remove.bg/downloads/063a15cb-26aa-4546-b6ea-6f1cdc88e842/9883c5e1b1e2b3e865b2cc052bf953a5-removebg-preview.png
 
 
 Chevrolet Silverado
-Price: $45,000
+Price: 70
 Manufacture Date: 2023-09-10
 Engine Capacity: 5.3
 Speed: 150
 Fuel Type: Gasoline
 Condition: New
+img:https://o.remove.bg/downloads/55560a09-df02-464d-8222-b178ee9afefb/112f67052e44062fe27fee594bcef4ab-removebg-preview.png
 
 
 Chevrolet Equinox
-Price: $30,000
+Price: 40
 Manufacture Date: 2023-09-06
 Engine Capacity: 1.5
 Speed: 125
 Fuel Type: Gasoline
 Condition: New
+img:https://o.remove.bg/downloads/47df9625-9dd9-4ebc-bcec-bab84f9b3ca6/867990d491de3406597a6afcb38bff65-removebg-preview.png
 
 
 Chevrolet Trax
-Price: $22,000
+Price: 70
 Manufacture Date: 2023-09-02
 Engine Capacity: 1.4
 Speed: 115
 Fuel Type: Gasoline
 Condition: New
+img:https://o.remove.bg/downloads/c10cd59c-c6c8-4b3d-862a-8771799e21f8/604cb5e078231a4a5760b758aa966702-removebg-preview.png
 
 
 Chevrolet Camaro
-Price: $55,000
+Price: 170
 Manufacture Date: 2023-08-30
 Engine Capacity: 6.2
 Speed: 165
 Fuel Type: Gasoline
 Condition: New
+img:https://o.remove.bg/downloads/d3b7eb18-6d71-4049-af46-53110a1684a0/c496af8a90917a4b0c44040ab8a22929-removebg-preview.png
 
 
 
@@ -149,48 +164,53 @@ Jeep
 
 
 Jeep Grand Cherokee
-Price: $50,000
+Price: 110
 Manufacture Date: 2023-09-16
 Engine Capacity: 3.6
 Speed: 130
 Fuel Type: Gasoline
 Condition: New
+img:https://o.remove.bg/downloads/2f51e1b1-34a1-46ef-bbc4-1265409d1a13/40fe4f38350f83cc9b4567827b363bc0-removebg-preview.png
 
 
 Jeep Wrangler
-Price: $45,000
+Price: 95
 Manufacture Date: 2023-09-12
 Engine Capacity: 3.6
 Speed: 124
 Fuel Type: Gasoline
 Condition: New
+img:https://o.remove.bg/downloads/4770ed14-c840-4175-b351-7dfc6eadcf63/47a5298d2dd798b34506cd1c4267b2c7-removebg-preview.png
 
 
 Jeep Compass
-Price: $30,000
+Price: 60
 Manufacture Date: 2023-09-08
 Engine Capacity: 2.4
 Speed: 125
 Fuel Type: Gasoline
 Condition: New
+img:https://o.remove.bg/downloads/152a0aad-ac44-40e9-9c56-3a01d798265d/c5e928d52e45e95ad55d5013e5b80043-removebg-preview.png
 
 
 Jeep Renegade
-Price: $28,000
+Price: 50
 Manufacture Date: 2023-09-04
 Engine Capacity: 1.3
 Speed: 130
 Fuel Type: Gasoline
 Condition: New
+img:https://o.remove.bg/downloads/bffc8eca-6ee9-4035-8152-a8810d16df75/2c2f1f8946dcf02d726c87e2f229db30-removebg-preview.png
 
 
 Jeep Cherokee
-Price: $32,000
+Price: 75
 Manufacture Date: 2023-09-01
 Engine Capacity: 3.2
 Speed: 130
 Fuel Type: Gasoline
 Condition: New
+img:https://o.remove.bg/downloads/5e5c9166-362d-4c12-b0ae-521678e7c7ef/fbf104fd952032c263bcc9aa0429d9b2-removebg-preview.png
 
 
 
@@ -198,92 +218,102 @@ Porsche
 
 
 Porsche 911
-Price: $110,000
+Price: 190
 Manufacture Date: 2023-09-18
 Engine Capacity: 3.0
 Speed: 193
 Fuel Type: Gasoline
 Condition: New
+img:https://o.remove.bg/downloads/ab0616ad-52ac-40d4-9bc3-929da2d56904/0739dd19b617069bfebf7af87cba8594-removebg-preview.png
 
 
 Porsche Cayenne
-Price: $85,000
+Price: 110
 Manufacture Date: 2023-09-14
 Engine Capacity: 3.0
 Speed: 165
 Fuel Type: Hybrid
 Condition: New
+img:https://o.remove.bg/downloads/1bdac6d7-5d14-48e7-a9a8-c0f3e2b75a34/70d7a91b86a01d6cb9379cf272f71da8-removebg-preview.png
 
 
 Porsche Macan
-Price: $55,000
+Price: 160
 Manufacture Date: 2023-09-10
 Engine Capacity: 2.0
 Speed: 155
 Fuel Type: Gasoline
 Condition: New
+img:https://o.remove.bg/downloads/8431e8de-f404-423f-be7e-4a0d0907be95/b3bacb2c7949a5ec1a85c8c0342d4e7c-removebg-preview.png
 
 
 Porsche Taycan
-Price: $120,000
+Price: 140
 Manufacture Date: 2023-09-06
 Engine Capacity: Electric
 Speed: 161
 Fuel Type: Electric
 Condition: New
+img:https://o.remove.bg/downloads/3975ebab-f37b-407d-afe2-0f1489b32ece/f132534e62033046185dc01322600983-removebg-preview.png
 
 
 Porsche Panamera
-Price: $95,000
+Price: 135
 Manufacture Date: 2023-09-02
 Engine Capacity: 2.9
 Speed: 174
 Fuel Type: Hybrid
 Condition: New
+img:https://o.remove.bg/downloads/a7775322-aeed-4c8e-8c4e-112bd25c7f7b/ea140f3b57a68288ec4128338bf48025-removebg-preview.png
 
 
 
 
 Toyota RAV4
-Price: $35,000
+Price: 40
 Manufacture Date: 2023-09-16
 Engine Capacity: 2.5
 Speed: 130
 Fuel Type: Hybrid
 Condition: New
+img:https://o.remove.bg/downloads/45123ca4-50ac-4114-9126-d91b2528eaaf/0ef44d3bbae972991d40a5bf8b897c62-removebg-preview.png
 
 
 Toyota Camry
-Price: $32,000
+Price: 30
 Manufacture Date: 2023-09-12
 Engine Capacity: 2.5
 Speed: 140
 Fuel Type: Hybrid
 Condition: New
+img:https://o.remove.bg/downloads/faf5cb58-30ca-42e5-9def-f94e4ddb1edf/7e21e87fbe468a306e73c44940b507a0-removebg-preview.png
 
 
 Toyota Corolla
-Price: $25,000
+Price: 20
 Manufacture Date: 2023-09-08
 Engine Capacity: 1.8
 Speed: 120
 Fuel Type: Gasoline
 Condition: New
+img:https://o.remove.bg/downloads/559bdfed-72e0-4719-a0e6-9016722a43bc/69f5d35a55d65a0b6074f6d5aa861b93-removebg-preview.png
 
 
 Toyota Highlander
-Price: $40,000
+Price: 75
 Manufacture Date: 2023-09-04
 Engine Capacity: 3.5
 Speed: 135
 Fuel Type: Hybrid
 Condition: New
+img: https://o.remove.bg/downloads/233d554e-7d89-474d-86ab-597050f4c7aa/332ad51806fce729e4331eb7c3f3af68-removebg-preview.png
 
 
-Toyota Sienna
-Price: $35,000
+Toyota supra
+Price: 200
 Manufacture Date: 2023-09-01
 Engine Capacity: 2.5
 Speed: 120
 Fuel Type: Hybrid
 Condition: New
+img:https://o.remove.bg/downloads/9d273181-3db5-4569-86a4-50efa9140b39/2060f0f25b1c6ce9c2ac066b787a6c5f-removebg-preview.png
