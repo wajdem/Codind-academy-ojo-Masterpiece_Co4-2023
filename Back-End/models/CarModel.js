@@ -5,9 +5,17 @@ const carSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  avatar: {
+    type: String,
+    // required: true
+  },
+  cloudinary_id: {
+    type: String,
+    // required: true
+  },
   name: {
     type: String,
-    required: true
+    // required: true
   },
   price: {
     type: Number,
@@ -27,12 +35,10 @@ const carSchema = new mongoose.Schema({
   },
   fuelType: {
     type: String,
-    // enum: ['Gasoline', 'Diesel', 'Electric', 'Hybrid'],
     required: true
   },
   condition: {
     type: String,
-    // enum: ['New', 'Used'],
     required: true
   }
 });

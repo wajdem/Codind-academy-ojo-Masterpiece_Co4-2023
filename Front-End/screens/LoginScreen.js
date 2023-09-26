@@ -10,6 +10,8 @@ import {
   KeyboardAvoidingView,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { FontAwesome } from "@expo/vector-icons";
+
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -17,6 +19,8 @@ const LoginScreen = () => {
     email: "",
     password: "",
   });
+  const [showPassword, setShowPassword] = useState(false);
+
 
   const handleInputChange = (name, value) => {
     setFormData({
@@ -25,10 +29,14 @@ const LoginScreen = () => {
     });
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   const handleLogin = async () => {
     try {
       const response = await fetch(
-        "https://8156-94-249-0-62.ngrok.io/api/user/login",
+        "https://e3e6-94-249-0-61.ngrok.io/api/user/login",
         {
           method: "POST",
           headers: {
@@ -71,13 +79,25 @@ const LoginScreen = () => {
             value={formData.email}
             onChangeText={(text) => handleInputChange("email", text)}
           />
-          <TextInput
-            placeholder="Password"
-            style={styles.input}
-            secureTextEntry
-            value={formData.password}
-            onChangeText={(text) => handleInputChange("password", text)}
-          />
+          <View style={styles.inputContainer}>
+            <TextInput
+              placeholder="Password"
+              style={styles.input}
+              secureTextEntry={!showPassword}
+              value={formData.password}
+              onChangeText={(text) => handleInputChange("password", text)}
+            />
+            <TouchableOpacity
+              style={styles.icon}
+              onPress={togglePasswordVisibility}
+            >
+              <FontAwesome
+                name={showPassword ? "eye-slash" : "eye"}
+                size={24}
+                color="rgb(44, 43, 52)"
+              />
+            </TouchableOpacity>
+          </View>
           <TouchableOpacity style={styles.button} onPress={handleLogin}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
@@ -144,6 +164,15 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     paddingHorizontal: 20,
     borderRadius: 8,
+  },
+  inputContainer: {
+    position: "relative",
+    width: "100%",
+  },
+  icon: {
+    position: "absolute",
+    top: 12,
+    left: 265,
   },
   signupText: {
     color: "#ffffff",

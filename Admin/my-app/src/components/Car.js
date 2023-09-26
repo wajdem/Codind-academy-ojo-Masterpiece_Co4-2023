@@ -1,4 +1,3 @@
-// JobListPage.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import UpdatePopup from "./EditPopup";
@@ -7,6 +6,17 @@ const JobListPage = () => {
   const [Car, setCar] = useState([]);
   const [selectedCar, setSelectedCar] = useState(null);
   const [getAllUser, setGetAllUser] = useState([]);
+  const [newCarData, setNewCarData] = useState({
+    // Initialize with default values if needed
+    company: "",
+    name: "",
+    price: "",
+    manufactureDate: "",
+    engineCapacity: "",
+    speed: "",
+    fuelType: "",
+    condition: ""
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,6 +48,25 @@ const JobListPage = () => {
     setSelectedCar(null);
   };
 
+  const handleAddCar = async () => {
+    try {
+      const response = await axios.post("/api/car/add-car", newCarData);
+      setCar([response.data, ...Car]);
+      setNewCarData({
+        company: "",
+        name: "",
+        price: "",
+        manufactureDate: "",
+        engineCapacity: "",
+        speed: "",
+        fuelType: "",
+        condition: ""
+      });
+    } catch (error) {
+      console.error("Error adding Car:", error);
+    }
+  };
+
   useEffect(() => {
     const fetchAllUser = async () => {
       try {
@@ -53,13 +82,12 @@ const JobListPage = () => {
 
   const handleDeleteUser = async (userId) => {
     try {
-      const response = await axios.delete(`/api/user/delte-user/${userId}`);
+      const response = await axios.delete(`/api/user/delete-user/${userId}`);
       console.log(response.data.message);
     } catch (error) {
       console.error("Error deleting user:", error);
     }
   };
-  
 
   return (
     <>

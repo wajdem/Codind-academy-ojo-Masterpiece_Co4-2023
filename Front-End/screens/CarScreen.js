@@ -49,7 +49,7 @@ const CarCard = ({route }) => {
   };
 
   useEffect(() => {
-    fetch('https://8156-94-249-0-62.ngrok.io/api/car/all-cars')
+    fetch('https://e3e6-94-249-0-61.ngrok.io/api/car/all-cars')
       .then(response => response.json())
       .then(data => {
         const filteredCars = data.filter(car => car.company === company);

@@ -18,10 +18,9 @@ export default function DetailsScreen() {
   const navigation = useNavigation();
 
 
-
   useEffect(() => {
     // Fetch car details based on carId
-    fetch(`https://8156-94-249-0-62.ngrok.io/api/car/all-cars/${carsId}`)
+    fetch(`https://e3e6-94-249-0-61.ngrok.io/api/car/all-cars/${carsId}`)
       .then(response => response.json())
       .then(data => setCarDetails(data))
       .catch(error => console.error('Error:', error));

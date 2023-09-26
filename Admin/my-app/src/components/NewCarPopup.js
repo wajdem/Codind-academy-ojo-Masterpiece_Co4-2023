@@ -26,7 +26,7 @@ const NewCarPopup = () => {
         condition,
       });
       console.log("API call successful:", response.data);
-      setCarAdded(true); // Set the carAdded state to true
+      setCarAdded(true);
     } catch (error) {
       console.error("Error creating car listing:", error);
     }
@@ -47,49 +47,49 @@ const NewCarPopup = () => {
         </div>
       ) : (
         <div className="popup-content">
-          <label>Company:</label>
+          <label >Company:</label >
           <input
             type="String"
             value={company}
             onChange={(e) => setCompany(e.target.value)}
           />
-          <label>Name:</label>
+          <label >Name:</label >
           <input
             type="String"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <label>Price:</label>
+          <label >Price:</label >
           <input
             type="Number"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-          <label>Manufacture Date:</label>
+          <label >Manufacture Date:</label >
           <input
             type="Number"
             value={manufactureDate}
             onChange={(e) => setManufactureDate(e.target.value)}
           />
-          <label>Engine Capacity:</label>
+          <label >Engine Capacity:</label >
           <input
             type="Number"
             value={engineCapacity}
             onChange={(e) => setEngineCapacity(e.target.value)}
           />
-          <label>Speed:</label>
+          <label >Speed:</label >
           <input
             type="Number"
             value={speed}
             onChange={(e) => setSpeed(e.target.value)}
           />
-          <label>Fuel Type:</label>
+          <label >Fuel Type:</label >
           <input
             type="String"
             value={fuelType}
             onChange={(e) => setFuelType(e.target.value)}
           />
-          <label>Condition:</label>
+          <label >Condition:</label >
           <input
             type="String"
             value={condition}

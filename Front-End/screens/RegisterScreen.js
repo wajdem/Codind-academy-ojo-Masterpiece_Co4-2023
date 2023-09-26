@@ -11,6 +11,7 @@ import {
   ScrollView,
   Platform,
 } from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
 
 const SignupScreen = ({ navigation }) => {
   const [formData, setFormData] = useState({
@@ -19,6 +20,7 @@ const SignupScreen = ({ navigation }) => {
     email: "",
     password: "",
   });
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleInputChange = (name, value) => {
     setFormData({
@@ -27,15 +29,22 @@ const SignupScreen = ({ navigation }) => {
     });
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   const handleSignup = async () => {
     try {
-      const response = await fetch('https://8156-94-249-0-62.ngrok.io/api/user/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://e3e6-94-249-0-61.ngrok.io/api/user/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await response.json();
 
@@ -44,7 +53,7 @@ const SignupScreen = ({ navigation }) => {
         console.log("Signup successful:", data);
 
         // Navigate to LoginScreen after successful signup
-        navigation.navigate('Login');
+        navigation.navigate("Login");
       } else {
         // Handle signup error here
         console.error("Signup failed:", data.error || "Unknown error");
@@ -61,11 +70,11 @@ const SignupScreen = ({ navigation }) => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}
     >
+      <Image
+        source={require("../assets/logo-no-background.png")}
+        style={styles.image}
+      />
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Image
-          source={require("../assets/logo-no-background.png")}
-          style={styles.image}
-        />
         <Image
           source={require("../assets/Mercedes.png")}
           style={styles.imagetwo}
@@ -89,13 +98,25 @@ const SignupScreen = ({ navigation }) => {
             value={formData.email}
             onChangeText={(text) => handleInputChange("email", text)}
           />
-          <TextInput
-            placeholder="Password"
-            style={styles.input}
-            secureTextEntry
-            value={formData.password}
-            onChangeText={(text) => handleInputChange("password", text)}
-          />
+          <View style={styles.inputContainer}>
+            <TextInput
+              placeholder="Password"
+              style={styles.input}
+              secureTextEntry={!showPassword}
+              value={formData.password}
+              onChangeText={(text) => handleInputChange("password", text)}
+            />
+            <TouchableOpacity
+              style={styles.icon}
+              onPress={togglePasswordVisibility}
+            >
+              <FontAwesome
+                name={showPassword ? "eye-slash" : "eye"}
+                size={24}
+                color="rgb(44, 43, 52)"
+              />
+            </TouchableOpacity>
+          </View>
           <TouchableOpacity style={styles.button} onPress={handleSignup}>
             <Text style={styles.buttonText}>Sign Up</Text>
           </TouchableOpacity>
@@ -155,6 +176,15 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     paddingHorizontal: 20,
     borderRadius: 8,
+  },
+  inputContainer: {
+    position: "relative",
+    width: "100%",
+  },
+  icon: {
+    position: "absolute",
+    top: 12,
+    left: 265,
   },
   error: {
     color: "red",
