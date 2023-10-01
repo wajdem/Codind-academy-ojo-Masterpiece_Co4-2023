@@ -25,7 +25,7 @@ export default function DetailsScreen() {
 
   useEffect(() => {
     // Fetch car details based on carId
-    fetch(`https://7248-37-220-118-20.ngrok.io/api/car/all-cars/${carsId}`)
+    fetch(`https://75fa-37-220-113-15.ngrok.io/api/car/all-cars/${carsId}`)
       .then((response) => response.json())
       .then((data) => setCarDetails(data))
       .catch((error) => console.error("Error:", error));
@@ -41,12 +41,6 @@ export default function DetailsScreen() {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        style={styles.profileIcon}
-        onPress={() => navigation.navigate("ProfileScreen")}
-      >
-        <Feather name="user" size={34} color="#ffffff" />
-      </TouchableOpacity>
       <Image source={{ uri: carDetails.img.uri }} style={styles.image} />
       <Text style={styles.carName}>
         {carDetails.company} {carDetails.name}
@@ -148,7 +142,7 @@ const styles = StyleSheet.create({
     width: 390,
     height: 190,
     resizeMode: "cover",
-    marginTop: 55,
+    marginTop: 25,
   },
   carName: {
     fontSize: 30,

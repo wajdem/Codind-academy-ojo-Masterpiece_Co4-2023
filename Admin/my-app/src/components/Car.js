@@ -15,7 +15,7 @@ const JobListPage = () => {
     engineCapacity: "",
     speed: "",
     fuelType: "",
-    condition: ""
+    condition: "",
   });
 
   useEffect(() => {
@@ -60,7 +60,7 @@ const JobListPage = () => {
         engineCapacity: "",
         speed: "",
         fuelType: "",
-        condition: ""
+        condition: "",
       });
     } catch (error) {
       console.error("Error adding Car:", error);
@@ -80,14 +80,14 @@ const JobListPage = () => {
     fetchAllUser();
   }, []);
 
-  const handleDeleteUser = async (userId) => {
-    try {
-      const response = await axios.delete(`/api/user/delete-user/${userId}`);
-      console.log(response.data.message);
-    } catch (error) {
-      console.error("Error deleting user:", error);
-    }
-  };
+  // const handleDeleteUser = async (userId) => {
+  //   try {
+  //     const response = await axios.delete(`/api/user/delete-user/${userId}`);
+  //     console.log(response.data.message);
+  //   } catch (error) {
+  //     console.error("Error deleting user:", error);
+  //   }
+  // };
 
   return (
     <>
@@ -150,7 +150,7 @@ const JobListPage = () => {
               <th>Name</th>
               <th>Phone</th>
               <th>Email</th>
-              <th>Delete</th>
+              {/* <th>Delete</th> */}
             </tr>
           </thead>
           <tbody>
@@ -159,14 +159,14 @@ const JobListPage = () => {
                 <td>{user.username}</td>
                 <td>{user.phoneNumber}</td>
                 <td>{user.email}</td>
-                <td>
+                {/* <td>
                 <button
                   className="button"
                   onClick={() => handleDeleteUser(user._id)}
                 >
                   Delete
                 </button>
-                </td>
+                </td> */}
               </tr>
             ))}
           </tbody>

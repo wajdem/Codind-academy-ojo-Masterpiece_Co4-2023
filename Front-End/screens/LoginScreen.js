@@ -36,7 +36,7 @@ const LoginScreen = () => {
   const handleLogin = async () => {
     try {
       const response = await fetch(
-        "https://7248-37-220-118-20.ngrok.io/api/user/login",
+        "https://75fa-37-220-113-15.ngrok.io/api/user/login",
         {
           method: "POST",
           headers: {

@@ -5,41 +5,8 @@ import { useNavigation } from '@react-navigation/native';
 
 
 const CarCard = ({route }) => {
-  // const imgcar = [
-  //   {image: require("../img/3series_preview_rev_1.png") },
-  //   {image: require("../img/911_preview_rev_1.png") },
-  //   {image: require("../img/a-class_preview_rev_1.png") },
-  //   {image: require("../img/camaro_preview_rev_1.png") },
-  //   {image: require("../img/camry_preview_rev_1.png") },
-  //   {image: require("../img/Cayenne_preview_rev_1.png") },
-  //   {image: require("../img/cherokee_preview_rev_1.png") },
-  //   {image: require("../img/Compass_preview_rev_1.png") },
-  //   {image: require("../img/corlla_preview_rev_1.png") },
-  //   {image: require("../img/corvette_preview_rev_1.png") },
-  //   {image: require("../img/EQS_preview_rev_1.png") },
-  //   {image: require("../img/Equinox_preview_rev_1.png") },
-  //   {image: require("../img/glc_preview_rev_1.png") },
-  //   {image: require("../img/GLE_preview_rev_1.png") },
-  //   {image: require("../img/grand-cherokee_preview_rev_1.png") },
-  //   {image: require("../img/highlander_preview_rev_1.png") },
-  //   {image: require("../img/i4_preview_rev_1.png") },
-  //   {image: require("../img/m8_preview_rev_1.png") },
-  //   {image: require("../img/macan_preview_rev_1.png") },
-  //   {image: require("../img/Panamera_preview_rev_1.png") },
-  //   {image: require("../img/ravl_preview_rev_1.png") },
-  //   {image: require("../img/S-Class_preview_rev_1.png") },
-  //   {image: require("../img/renegade_preview_rev_1.png") },
-  //   {image: require("../img/silverado_preview_rev_1.png") },
-  //   {image: require("../img/supra_preview_rev_1.png") },
-  //   {image: require("../img/trax_preview_rev_1.png") },
-  //   {image: require("../img/taycan_preview_rev_1.png") },
-  //   {image: require("../img/wrangler_preview_rev_1.png") },
-  //   {image: require("../img/x3_preview_rev_1.png") },
-  //   {image: require("../img/x7_preview_rev_1.png") },
 
-  // ];
   const { company } = route.params;
-  // const [bmwCars, setBmwCars] = useState([]);
   const [cars, setCars] = useState([]);
 
   const navigation = useNavigation();
@@ -49,8 +16,13 @@ const CarCard = ({route }) => {
   };
 
   useEffect(() => {
-    fetch('https://7248-37-220-118-20.ngrok.io/api/car/all-cars')
-      .then(response => response.json())
+    fetch('https://75fa-37-220-113-15.ngrok.io/api/car/all-cars')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then(data => {
         const filteredCars = data.filter(car => car.company === company);
         setCars(filteredCars);
@@ -70,16 +42,6 @@ const CarCard = ({route }) => {
       </TouchableOpacity>
     ))}
   </ScrollView>
-    // <ScrollView contentContainerStyle={styles.container}>
-    //   {carData.map((car, index) => (
-    //     <TouchableOpacity key={index} style={styles.card}>
-    //       <View style={styles.cardContent}>
-    //         <Text style={styles.carName}>{car.name}</Text>
-    //         <Text style={styles.carPrice}>{car.price}</Text>
-    //       </View>
-    //     </TouchableOpacity>
-    //   ))}
-    // </ScrollView>
   );
 };
 
