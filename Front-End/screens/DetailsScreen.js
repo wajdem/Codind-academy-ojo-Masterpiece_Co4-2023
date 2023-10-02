@@ -7,33 +7,25 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
-  Modal,
-  Pressable,
 } from "react-native";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useRoute } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
-import { Feather } from "@expo/vector-icons";
 
 export default function DetailsScreen() {
   const route = useRoute();
   const { carsId } = route.params;
   const [carDetails, setCarDetails] = useState(null);
-  const [isReserved, setIsReserved] = useState(false);
   const navigation = useNavigation();
 
   useEffect(() => {
     // Fetch car details based on carId
-    fetch(`https://75fa-37-220-113-15.ngrok.io/api/car/all-cars/${carsId}`)
+    fetch(`https://6796-86-108-71-114.ngrok.io/api/car/all-cars/${carsId}`)
       .then((response) => response.json())
       .then((data) => setCarDetails(data))
       .catch((error) => console.error("Error:", error));
   }, [carsId]);
-
-  const reserveCar = () => {
-    setIsReserved(true);
-  };
 
   if (!carDetails) {
     return <Text>Loading...</Text>;
@@ -91,36 +83,14 @@ export default function DetailsScreen() {
           />
         </MapView>
       </View>
-      <TouchableOpacity style={styles.button} onPress={() => reserveCar()}>
-        <Text style={styles.buttonText}>Book Now</Text>
-      </TouchableOpacity>
-
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={isReserved}
-        onRequestClose={() => {
-          setIsReserved(false);
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          navigation.navigate("Order", { carsId: carsId }); // Pass carsId as a parameter
         }}
       >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>
-              Car has been reserved and is on its way to you!
-            </Text>
-            <Pressable
-              style={styles.okButton}
-              onPress={() => {
-                setIsReserved(false);
-                navigation.navigate("HomePage");
-              }}
-            >
-              <Text style={styles.okButtonText}>OK</Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
-
+        <Text style={styles.buttonText}>Book Now</Text>
+      </TouchableOpacity>
       <StatusBar style="auto" />
     </View>
   );
@@ -133,7 +103,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   profileIcon: {
-    position: 'absolute',
+    position: "absolute",
     top: 15,
     right: 15,
     zIndex: 10,
@@ -203,46 +173,46 @@ const styles = StyleSheet.create({
   map: {
     flex: 1,
   },
-  centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22,
-  },
-  modalView: {
-    margin: 20,
-    backgroundColor: "white",
-    borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center",
-    fontSize: 22,
-  },
-  okButton: {
-    width: 200,
-    height: 50,
-    elevation: 20,
-    color: "#ffff",
-    backgroundColor: "#2c2b34",
-    borderRadius: 20,
-    paddingVertical: 10,
-    justifyContent: "center",
-    marginTop: 20,
-  },
-  okButtonText: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center",
-  },
+  // centeredView: {
+  //   flex: 1,
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  //   marginTop: 22,
+  // },
+  // modalView: {
+  //   margin: 20,
+  //   backgroundColor: "white",
+  //   borderRadius: 20,
+  //   padding: 35,
+  //   alignItems: "center",
+  //   shadowColor: "#000",
+  //   shadowOffset: {
+  //     width: 0,
+  //     height: 2,
+  //   },
+  //   shadowOpacity: 0.25,
+  //   shadowRadius: 4,
+  //   elevation: 5,
+  // },
+  // modalText: {
+  //   marginBottom: 15,
+  //   textAlign: "center",
+  //   fontSize: 22,
+  // },
+  // okButton: {
+  //   width: 200,
+  //   height: 50,
+  //   elevation: 20,
+  //   color: "#ffff",
+  //   backgroundColor: "#2c2b34",
+  //   borderRadius: 20,
+  //   paddingVertical: 10,
+  //   justifyContent: "center",
+  //   marginTop: 20,
+  // },
+  // okButtonText: {
+  //   color: "white",
+  //   fontWeight: "bold",
+  //   textAlign: "center",
+  // },
 });

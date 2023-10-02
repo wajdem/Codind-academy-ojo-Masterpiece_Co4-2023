@@ -36,7 +36,7 @@ const SignupScreen = ({ navigation }) => {
   const handleSignup = async () => {
     try {
       const response = await fetch(
-        "https://75fa-37-220-113-15.ngrok.io/api/user/signup",
+        "https://6796-86-108-71-114.ngrok.io/api/user/signup",
         {
           method: "POST",
           headers: {

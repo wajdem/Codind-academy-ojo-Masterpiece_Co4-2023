@@ -16,7 +16,7 @@ const CarCard = ({route }) => {
   };
 
   useEffect(() => {
-    fetch('https://75fa-37-220-113-15.ngrok.io/api/car/all-cars')
+    fetch('https://6796-86-108-71-114.ngrok.io/api/car/all-cars')
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
