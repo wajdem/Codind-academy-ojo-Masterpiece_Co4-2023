@@ -17,7 +17,7 @@ export default function Order({ route, navigation }) {
 
   useEffect(() => {
     // Fetch car details based on carId
-    fetch(`https://6796-86-108-71-114.ngrok.io/api/car/all-cars/${carsId}`)
+    fetch(`https://16a1-94-249-0-61.ngrok.io/api/car/all-cars/${carsId}`)
       .then((response) => response.json())
       .then((data) => {
         setCar(data);

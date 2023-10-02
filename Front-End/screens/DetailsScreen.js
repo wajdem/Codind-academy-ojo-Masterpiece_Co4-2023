@@ -16,12 +16,12 @@ import { useNavigation } from "@react-navigation/native";
 export default function DetailsScreen() {
   const route = useRoute();
   const { carsId } = route.params;
-  const [carDetails, setCarDetails] = useState(null);
+  const [carDetails, setCarDetails] = useState('');
   const navigation = useNavigation();
 
   useEffect(() => {
     // Fetch car details based on carId
-    fetch(`https://6796-86-108-71-114.ngrok.io/api/car/all-cars/${carsId}`)
+    fetch(`https://16a1-94-249-0-61.ngrok.io/api/car/all-cars/${carsId}`)
       .then((response) => response.json())
       .then((data) => setCarDetails(data))
       .catch((error) => console.error("Error:", error));
@@ -35,7 +35,7 @@ export default function DetailsScreen() {
     <View style={styles.container}>
       <Image source={{ uri: carDetails.img.uri }} style={styles.image} />
       <Text style={styles.carName}>
-        {carDetails.company} {carDetails.name}
+        {carDetails?.company} {carDetails.name}
       </Text>
       <View style={styles.cardContainer}>
         <ScrollView

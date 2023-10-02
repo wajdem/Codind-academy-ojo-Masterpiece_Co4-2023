@@ -16,7 +16,7 @@ const CarCard = ({route }) => {
   };
 
   useEffect(() => {
-    fetch('https://6796-86-108-71-114.ngrok.io/api/car/all-cars')
+    fetch('https://16a1-94-249-0-61.ngrok.io/api/car/all-cars')
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -32,7 +32,7 @@ const CarCard = ({route }) => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {cars.map((car) => (
+      {cars?.map((car) => (
       <TouchableOpacity key={car._id} style={styles.card} onPress={() => handleCarPress(car._id)}>
           <Image source={{uri:car.img.uri}} style={styles.carImage} />
         <View style={styles.cardContent}>
