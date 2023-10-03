@@ -11,13 +11,13 @@ import {
 
 export default function Order({ route, navigation }) {
   const { carsId } = route.params;
-  const [seconds, setSeconds] = useState(990);
+  const [seconds, setSeconds] = useState(100);
   const [modalVisible, setModalVisible] = useState(false);
   const [car, setCar] = useState(null);
 
   useEffect(() => {
     // Fetch car details based on carId
-    fetch(`https://16a1-94-249-0-61.ngrok.io/api/car/all-cars/${carsId}`)
+    fetch(`https://3d77-37-220-113-15.ngrok.io/api/car/all-cars/${carsId}`)
       .then((response) => response.json())
       .then((data) => {
         setCar(data);
@@ -34,7 +34,7 @@ export default function Order({ route, navigation }) {
       clearInterval(timer);
       setModalVisible(true);
     }
-
+    
     return () => clearInterval(timer);
   }, [seconds]);
 
@@ -43,7 +43,6 @@ export default function Order({ route, navigation }) {
   };
 
   const goToHomePage = () => {
-    // Assuming you have a navigation object available
     navigation.navigate("HomePage");
   };
 
@@ -54,18 +53,16 @@ export default function Order({ route, navigation }) {
         style={styles.image}
       />
       {car && (
+        <View style={styles.container2}>
         <Text style={styles.text}>
           Get ready to hit the road, Your awesome{" "}
           <Text style={styles.text}>
             {car.company} {car.name}{" "}
           </Text>
           is en route.
-        </Text>
-      )}
-      {car && car.img && car.img.uri ? (
-        <Image source={{ uri: car.img.uri }} style={styles.imageTwo} />
-      ) : (
-        <Text style={styles.errorText}>Image not available</Text>
+          </Text>
+          <Image source={{ uri: car.img.uri }} style={styles.imageTwo} />
+        </View>
       )}
       <View style={styles.card}>
         <Text style={styles.timerText}>
@@ -104,12 +101,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  container2:{
+   marginBottom:100,
+  },
   card: {
     backgroundColor: "white",
     width: 300,
     borderRadius: 30,
     alignItems: "center",
-    marginBottom: 300,
+    marginBottom: 60,
   },
   text: {
     color: "#89939e",
@@ -123,12 +123,13 @@ const styles = StyleSheet.create({
     width: 250,
     height: 200,
     resizeMode: "contain",
-    marginTop: 245,
+    marginBottom: 10,
   },
   imageTwo: {
-    height: 350,
-    resizeMode: "contain",
-    marginRight: 15,
+    height: 250,
+    // width:400,
+    // resizeMode: "contain",
+    // marginRight: 15,
   },
   modalView: {
     margin: 20,

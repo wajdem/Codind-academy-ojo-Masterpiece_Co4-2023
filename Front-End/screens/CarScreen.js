@@ -3,20 +3,18 @@ import { View, Image, Text, StyleSheet, ScrollView, TouchableOpacity } from "rea
 import { useNavigation } from '@react-navigation/native';
 
 
-
-const CarCard = ({route }) => {
-
+const CarCard = ({ route }) => {
   const { company } = route.params;
   const [cars, setCars] = useState([]);
-
   const navigation = useNavigation();
+
 
   const handleCarPress = (carsId) => {
     navigation.navigate('CarDetails', { carsId });
   };
 
   useEffect(() => {
-    fetch('https://16a1-94-249-0-61.ngrok.io/api/car/all-cars')
+    fetch('https://3d77-37-220-113-15.ngrok.io/api/car/all-cars',)
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

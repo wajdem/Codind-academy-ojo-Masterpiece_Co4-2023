@@ -4,10 +4,10 @@ import UpdatePopup from "./EditPopup";
 
 const JobListPage = () => {
   const [Car, setCar] = useState([]);
+  // const [user, setAllUsers] = useState([]);
   const [selectedCar, setSelectedCar] = useState(null);
   const [getAllUser, setGetAllUser] = useState([]);
   const [newCarData, setNewCarData] = useState({
-    // Initialize with default values if needed
     company: "",
     name: "",
     price: "",
@@ -39,6 +39,15 @@ const JobListPage = () => {
       console.error("Error deleting Car listing:", error);
     }
   };
+
+  // const handleDeleteUser = async (id) => {
+  //   try {
+  //     await axios.delete(`/delete-user/${id}`);
+  //     setAllUsers((prevUsers) => prevUsers.filter((user) => user._id !== id));
+  //   } catch (error) {
+  //     console.error("Error deleting user:", error);
+  //   }
+  // };
 
   const handleUpdate = (Car) => {
     setSelectedCar(Car);
@@ -79,15 +88,6 @@ const JobListPage = () => {
 
     fetchAllUser();
   }, []);
-
-  // const handleDeleteUser = async (userId) => {
-  //   try {
-  //     const response = await axios.delete(`/api/user/delete-user/${userId}`);
-  //     console.log(response.data.message);
-  //   } catch (error) {
-  //     console.error("Error deleting user:", error);
-  //   }
-  // };
 
   return (
     <>
@@ -160,12 +160,12 @@ const JobListPage = () => {
                 <td>{user.phoneNumber}</td>
                 <td>{user.email}</td>
                 {/* <td>
-                <button
-                  className="button"
-                  onClick={() => handleDeleteUser(user._id)}
-                >
-                  Delete
-                </button>
+                  <button
+                    className="button"
+                    onClick={() => handleDeleteUser(user._id)}
+                  >
+                    Delete
+                  </button>
                 </td> */}
               </tr>
             ))}
