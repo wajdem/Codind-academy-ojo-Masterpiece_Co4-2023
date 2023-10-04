@@ -36,7 +36,7 @@ const SignupScreen = ({ navigation }) => {
   const handleSignup = async () => {
     try {
       const response = await fetch(
-        "https://3d77-37-220-113-15.ngrok.io/api/user/signup",
+        "https://6192-94-249-0-63.ngrok.io/api/user/signup",
         {
           method: "POST",
           headers: {
@@ -49,19 +49,13 @@ const SignupScreen = ({ navigation }) => {
       const data = await response.json();
 
       if (response.ok) {
-        // Handle successful signup here
         console.log("Signup successful:", data);
-
-        // Navigate to LoginScreen after successful signup
         navigation.navigate("Login");
       } else {
-        // Handle signup error here
         console.error("Signup failed:", data.error || "Unknown error");
-        // Optionally, show an error message to the user
       }
     } catch (error) {
       console.error("Error signing up:", error);
-      // Optionally, show an error message to the user
     }
   };
 
@@ -75,11 +69,11 @@ const SignupScreen = ({ navigation }) => {
         style={styles.image}
       />
       <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <View style={styles.signup}>
         <Image
           source={require("../assets/Mercedes.png")}
           style={styles.imagetwo}
         />
-        <View style={styles.signup}>
           <TextInput
             placeholder="User Name"
             style={styles.input}
@@ -145,7 +139,7 @@ const styles = StyleSheet.create({
     marginLeft:88,
   },
   imagetwo: {
-    height: 200,
+    height: 193,
     resizeMode: "contain",
     marginLeft: 100,
   },
@@ -168,6 +162,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    marginBottom:45,
   },
   input: {
     width: 300,

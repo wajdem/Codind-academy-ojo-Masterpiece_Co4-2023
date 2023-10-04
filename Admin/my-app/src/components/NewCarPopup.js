@@ -51,63 +51,54 @@ const NewCarPopup = () => {
       ) : (
         <div className="popup-content">
           <label >Add New Car</label >
-          {/* <label >Company:</label > */}
           <input
             type="String"
             placeholder="Company"
             value={company}
             onChange={(e) => setCompany(e.target.value)}
           />
-          {/* <label >Name:</label > */}
           <input
             type="String"
             placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          {/* <label >Price:</label > */}
           <input
             type="Number"
             placeholder="Price"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-          {/* <label >Manufacture Date:</label > */}
           <input
             type="Number"
             placeholder="Manufacture Date"
             value={manufactureDate}
             onChange={(e) => setManufactureDate(e.target.value)}
           />
-          {/* <label >Engine Capacity:</label > */}
           <input
             type="Number"
             placeholder="Engine Capacity"
             value={engineCapacity}
             onChange={(e) => setEngineCapacity(e.target.value)}
           />
-          {/* <label >Speed:</label > */}
           <input
             type="Number"
             placeholder="Speed"
             value={speed}
             onChange={(e) => setSpeed(e.target.value)}
           />
-          {/* <label >Fuel Type:</label > */}
           <input
             type="String"
             placeholder="Fuel Type"
             value={fuelType}
             onChange={(e) => setFuelType(e.target.value)}
           />
-          {/* <label >Condition:</label > */}
           <input
             type="String"
             placeholder="Condition"
             value={condition}
             onChange={(e) => setCondition(e.target.value)}
           />
-          {/* <label >Img Car:</label > */}
           <input
             type="String"
             placeholder="Img Car (URI)"

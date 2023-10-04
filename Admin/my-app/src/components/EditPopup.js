@@ -37,7 +37,6 @@ const UpdatePopup = ({ car, onClose }) => {
     <div className="edit-popup">
       <div className="popup-content">
         <form onSubmit={handleSubmit}>
-          {/* <label>Company:</label> */}
           <input
             type="String"
             name="company"
@@ -45,7 +44,6 @@ const UpdatePopup = ({ car, onClose }) => {
             value={formData.company}
             onChange={handleInputChange}
           />
-          {/* <label>Name:</label> */}
           <input
             type="String"
             name="name"
@@ -53,7 +51,6 @@ const UpdatePopup = ({ car, onClose }) => {
             value={formData.name}
             onChange={handleInputChange}
           />
-          {/* <label>price:</label> */}
           <input
             type="Number"
             name="price"
@@ -61,7 +58,6 @@ const UpdatePopup = ({ car, onClose }) => {
             value={formData.price}
             onChange={handleInputChange}
           />
-          {/* <label>Manufacture Date:</label> */}
           <input
             type="Number"
             name="manufactureDate"
@@ -69,7 +65,6 @@ const UpdatePopup = ({ car, onClose }) => {
             value={formData.manufactureDate}
             onChange={handleInputChange}
           />
-          {/* <label>Engine Capacity:</label> */}
           <input
             type="Number"
             name="engineCapacity"
@@ -77,7 +72,6 @@ const UpdatePopup = ({ car, onClose }) => {
             value={formData.engineCapacity}
             onChange={handleInputChange}
           />
-          {/* <label>Speed:</label> */}
           <input
             type="Number"
             name="speed"
@@ -85,7 +79,6 @@ const UpdatePopup = ({ car, onClose }) => {
             value={formData.speed}
             onChange={handleInputChange}
           />
-          {/* <label>Fuel Type:</label> */}
           <input
             type="String"
             name="fuelType"
@@ -93,7 +86,6 @@ const UpdatePopup = ({ car, onClose }) => {
             value={formData.fuelType}
             onChange={handleInputChange}
           />
-          {/* <label>Condition:</label> */}
           <input
             type="String"
             name="condition"

@@ -16,13 +16,13 @@ export default function Order({ route, navigation }) {
   const [car, setCar] = useState(null);
 
   useEffect(() => {
-    // Fetch car details based on carId
-    fetch(`https://3d77-37-220-113-15.ngrok.io/api/car/all-cars/${carsId}`)
+    fetch(`https://6192-94-249-0-63.ngrok.io/api/car/all-cars/${carsId}`)
       .then((response) => response.json())
       .then((data) => {
         setCar(data);
-        console.log(data.img.uri); // Add this line
-      })      .catch((error) => console.error("Error:", error));
+        // console.log(data.img.uri); // Add this line
+      })
+      .catch((error) => console.error("Error:", error));
   }, [carsId]);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export default function Order({ route, navigation }) {
       clearInterval(timer);
       setModalVisible(true);
     }
-    
+
     return () => clearInterval(timer);
   }, [seconds]);
 
@@ -54,12 +54,12 @@ export default function Order({ route, navigation }) {
       />
       {car && (
         <View style={styles.container2}>
-        <Text style={styles.text}>
-          Get ready to hit the road, Your awesome{" "}
           <Text style={styles.text}>
-            {car.company} {car.name}{" "}
-          </Text>
-          is en route.
+            Get ready to hit the road, Your awesome
+            <Text style={styles.boldText}>
+              {car.company} {car.name}
+            </Text>
+            is en route.
           </Text>
           <Image source={{ uri: car.img.uri }} style={styles.imageTwo} />
         </View>
@@ -93,7 +93,6 @@ export default function Order({ route, navigation }) {
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -101,8 +100,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  container2:{
-   marginBottom:100,
+  container2: {
+    marginBottom: 100,
   },
   card: {
     backgroundColor: "white",
@@ -112,8 +111,11 @@ const styles = StyleSheet.create({
     marginBottom: 60,
   },
   text: {
-    color: "#89939e",
-    fontSize: 25,
+    fontSize: 16,
+    color: 'black',
+  },
+  boldText: {
+    fontWeight: 'bold',
   },
   timerText: {
     color: "#2c2b34",
@@ -127,9 +129,6 @@ const styles = StyleSheet.create({
   },
   imageTwo: {
     height: 250,
-    // width:400,
-    // resizeMode: "contain",
-    // marginRight: 15,
   },
   modalView: {
     margin: 20,
@@ -165,7 +164,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
   },
   errorText: {
-    color: 'red',
+    color: "red",
     fontSize: 16,
   },
 });

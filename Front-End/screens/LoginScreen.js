@@ -36,7 +36,7 @@ const LoginScreen = () => {
   const handleLogin = async () => {
     try {
       const response = await fetch(
-        "https://3d77-37-220-113-15.ngrok.io/api/user/login",
+        "https://6192-94-249-0-63.ngrok.io/api/user/login",
         {
           method: "POST",
           headers: {
@@ -68,11 +68,11 @@ const LoginScreen = () => {
           source={require("../assets/logo-no-background.png")}
           style={styles.image}
         />
+        <View style={styles.login}>
         <Image
           source={require("../assets/Chevrolet-Camaro.png")}
           style={styles.imagetwo}
         />
-        <View style={styles.login}>
           <TextInput
             placeholder="Email"
             style={styles.input}
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 70,
+    marginBottom: 130,
     position: "relative",
     width: "100%",
   },

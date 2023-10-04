@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import NewCarPopup from "./NewCarPopup"; // Corrected import statement
+import NewCarPopup from "./NewCarPopup";
 
 const Buttons = () => {
   const [showCarPopup, setShowCarPopup] = useState(false);

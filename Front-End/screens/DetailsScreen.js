@@ -12,6 +12,8 @@ import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useRoute } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
+import * as Location from "expo-location";
+
 
 export default function DetailsScreen() {
   const route = useRoute();
@@ -21,7 +23,7 @@ export default function DetailsScreen() {
 
   useEffect(() => {
     // Fetch car details based on carId
-    fetch(`https://3d77-37-220-113-15.ngrok.io/api/car/all-cars/${carsId}`)
+    fetch(`https://6192-94-249-0-63.ngrok.io/api/car/all-cars/${carsId}`)
       .then((response) => response.json())
       .then((data) => setCarDetails(data))
       .catch((error) => console.error("Error:", error));
@@ -30,6 +32,18 @@ export default function DetailsScreen() {
   if (!carDetails) {
     return <Text>Loading...</Text>;
   }
+
+  const getCurrentLocation = async () => {
+    let { status } = await Location.requestForegroundPermissionsAsync();
+    if (status !== 'granted') {
+      console.error('Permission to access location was denied');
+      return;
+    }
+
+    let location = await Location.getCurrentPositionAsync({});
+    setLocation(location);
+  }
+
 
   return (
     <View style={styles.container}>
@@ -65,6 +79,7 @@ export default function DetailsScreen() {
           </View>
         </ScrollView>
       </View>
+      <TouchableOpacity onPress={getCurrentLocation}>
       <View style={styles.mapContainer}>
         <MapView
           provider={PROVIDER_GOOGLE}
@@ -76,13 +91,19 @@ export default function DetailsScreen() {
             longitudeDelta: 0.0421,
           }}
         >
-          <Marker
-            coordinate={{ latitude: 31.9454, longitude: 35.9284 }}
-            title="Amman, Jordan"
-            description="Capital city of Jordan"
-          />
+          {location && (
+            <Marker
+              coordinate={{
+                latitude: location.coords.latitude,
+                longitude: location.coords.longitude,
+              }}
+              title="Your Location"
+              description="This is your current location"
+            />
+          )}
         </MapView>
       </View>
+    </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
@@ -154,7 +175,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 20,
+    marginTop: 25,
   },
   buttonText: {
     color: "#000000",
@@ -173,46 +194,4 @@ const styles = StyleSheet.create({
   map: {
     flex: 1,
   },
-  // centeredView: {
-  //   flex: 1,
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  //   marginTop: 22,
-  // },
-  // modalView: {
-  //   margin: 20,
-  //   backgroundColor: "white",
-  //   borderRadius: 20,
-  //   padding: 35,
-  //   alignItems: "center",
-  //   shadowColor: "#000",
-  //   shadowOffset: {
-  //     width: 0,
-  //     height: 2,
-  //   },
-  //   shadowOpacity: 0.25,
-  //   shadowRadius: 4,
-  //   elevation: 5,
-  // },
-  // modalText: {
-  //   marginBottom: 15,
-  //   textAlign: "center",
-  //   fontSize: 22,
-  // },
-  // okButton: {
-  //   width: 200,
-  //   height: 50,
-  //   elevation: 20,
-  //   color: "#ffff",
-  //   backgroundColor: "#2c2b34",
-  //   borderRadius: 20,
-  //   paddingVertical: 10,
-  //   justifyContent: "center",
-  //   marginTop: 20,
-  // },
-  // okButtonText: {
-  //   color: "white",
-  //   fontWeight: "bold",
-  //   textAlign: "center",
-  // },
 });

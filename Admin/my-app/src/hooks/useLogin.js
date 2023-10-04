@@ -10,28 +10,17 @@ export const useLogin = () => {
     setIsLoading(true);
     setError(null);
 
-    const responce = await fetch("/api/user/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
+    if (email === "Admin@admin.com" && password === "Add!!123456") {
+      const adminData = {};
 
-    const json = await responce.json();
-
-    if (!responce.ok) {
-      setIsLoading(false);
-      setError(json.error);
-    }
-
-    if (responce.ok) {
-      // save the user to local storage
-      localStorage.setItem("user", JSON.stringify(json));
-
-      // update the auth context
-      dispatch({ type: "LOGIN", payload: json });
+      localStorage.setItem("user", JSON.stringify(adminData));
+      dispatch({ type: "LOGIN", payload: adminData });
 
       setIsLoading(false);
       setError(null);
+    } else {
+      setIsLoading(false);
+      setError("Sorry, you do not have admin privileges to log in.");
     }
   };
 

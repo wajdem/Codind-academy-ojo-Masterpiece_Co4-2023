@@ -48,14 +48,14 @@ header img {
    grid-template-columns: 3fr 1fr;
    gap: 100px;
 }
-.car_tabel1{
+.car_tabel{
    width: 140%;
    background: #fff;
    border-radius: 4px;
    margin: 20px auto;
    padding: 20px;
    position: relative;
-   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
 }
 .car_tabel2{
    width: 140%;
@@ -64,8 +64,9 @@ header img {
    margin: 20px auto;
    padding: 20px;
    position: relative;
-   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
 }
+
 
 /* All car tabel */
 label,

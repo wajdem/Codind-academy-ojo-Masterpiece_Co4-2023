@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import UpdatePopup from "./EditPopup";
 
-const JobListPage = () => {
+const CarPage = () => {
   const [Car, setCar] = useState([]);
-  // const [user, setAllUsers] = useState([]);
   const [selectedCar, setSelectedCar] = useState(null);
   const [getAllUser, setGetAllUser] = useState([]);
   const [newCarData, setNewCarData] = useState({
@@ -40,14 +39,6 @@ const JobListPage = () => {
     }
   };
 
-  // const handleDeleteUser = async (id) => {
-  //   try {
-  //     await axios.delete(`/delete-user/${id}`);
-  //     setAllUsers((prevUsers) => prevUsers.filter((user) => user._id !== id));
-  //   } catch (error) {
-  //     console.error("Error deleting user:", error);
-  //   }
-  // };
 
   const handleUpdate = (Car) => {
     setSelectedCar(Car);
@@ -60,7 +51,7 @@ const JobListPage = () => {
   const handleAddCar = async () => {
     try {
       const response = await axios.post("/api/car/add-car", newCarData);
-      setCar([response.data, ...Car]);
+      setCar([...Car , response.data]);
       setNewCarData({
         company: "",
         name: "",
@@ -92,7 +83,7 @@ const JobListPage = () => {
   return (
     <>
       <h1>All Cars</h1>
-      <div className="car_tabel1">
+      <div className="car_tabel">
         <table>
           <thead>
             <tr>
@@ -150,7 +141,6 @@ const JobListPage = () => {
               <th>Name</th>
               <th>Phone</th>
               <th>Email</th>
-              {/* <th>Delete</th> */}
             </tr>
           </thead>
           <tbody>
@@ -159,14 +149,6 @@ const JobListPage = () => {
                 <td>{user.username}</td>
                 <td>{user.phoneNumber}</td>
                 <td>{user.email}</td>
-                {/* <td>
-                  <button
-                    className="button"
-                    onClick={() => handleDeleteUser(user._id)}
-                  >
-                    Delete
-                  </button>
-                </td> */}
               </tr>
             ))}
           </tbody>
@@ -176,4 +158,4 @@ const JobListPage = () => {
   );
 };
 
-export default JobListPage;
+export default CarPage;

@@ -5,7 +5,6 @@ const createToken = (_id) => {
   return jwt.sign({_id}, process.env.SECRET, { expiresIn: '3d' })
 }
 
-
 // Get all the users
 const getAllUser = async (req, res) => {
   try {

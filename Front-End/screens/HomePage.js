@@ -49,9 +49,9 @@ const list = [
 ];
 
 const photos = [
-  require("../assets/BMW_X5.png"),
-  require("../assets/Mercedes.png"),
+  require("../assets/Chevrolet-Camaro.png"),
   require("../assets/Mercedes-Benz.png"),
+  require("../assets/Mercedes.png"),
   require("../assets/MercedesS.png"),
 ];
 

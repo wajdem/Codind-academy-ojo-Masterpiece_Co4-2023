@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
     height: 200,
     resizeMode: "contain",
     marginRight: 65,
-    // marginBottom: 20,
   },
   imagetwo: {
     height: 400,
