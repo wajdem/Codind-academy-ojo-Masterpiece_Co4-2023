@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, Image,  TouchableOpacity } from "react-native";
 
 export default function WelcomeScreen({ navigation }) {
 
@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "rgb(44, 43, 52)",
-    
     alignItems: "center",
     justifyContent: "center",
   },

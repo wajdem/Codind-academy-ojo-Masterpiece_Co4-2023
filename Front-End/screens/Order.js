@@ -11,16 +11,16 @@ import {
 
 export default function Order({ route, navigation }) {
   const { carsId } = route.params;
-  const [seconds, setSeconds] = useState(100);
+  const [seconds, setSeconds] = useState(20);
   const [modalVisible, setModalVisible] = useState(false);
   const [car, setCar] = useState(null);
 
   useEffect(() => {
-    fetch(`https://6192-94-249-0-63.ngrok.io/api/car/all-cars/${carsId}`)
+    fetch(`https://7419-94-249-0-63.ngrok.io/api/car/all-cars/${carsId}`)
       .then((response) => response.json())
       .then((data) => {
         setCar(data);
-        // console.log(data.img.uri); // Add this line
+        // console.log(data.img.uri);
       })
       .catch((error) => console.error("Error:", error));
   }, [carsId]);
@@ -57,7 +57,7 @@ export default function Order({ route, navigation }) {
           <Text style={styles.text}>
             Get ready to hit the road, Your awesome
             <Text style={styles.boldText}>
-              {car.company} {car.name}
+              {" "}{car.company} {car.name}{" "}
             </Text>
             is en route.
           </Text>
@@ -111,15 +111,15 @@ const styles = StyleSheet.create({
     marginBottom: 60,
   },
   text: {
-    fontSize: 16,
-    color: 'black',
-  },
-  boldText: {
-    fontWeight: 'bold',
+    color: "#89939e",
+    fontSize: 25,
   },
   timerText: {
     color: "#2c2b34",
     fontSize: 60,
+  },
+  boldText:{
+    fontWeight: 'bold',
   },
   image: {
     width: 250,

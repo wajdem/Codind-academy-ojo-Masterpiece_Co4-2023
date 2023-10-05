@@ -23,7 +23,7 @@ export default function DetailsScreen() {
 
   useEffect(() => {
     // Fetch car details based on carId
-    fetch(`https://6192-94-249-0-63.ngrok.io/api/car/all-cars/${carsId}`)
+    fetch(`https://7419-94-249-0-63.ngrok.io/api/car/all-cars/${carsId}`)
       .then((response) => response.json())
       .then((data) => setCarDetails(data))
       .catch((error) => console.error("Error:", error));
@@ -33,16 +33,23 @@ export default function DetailsScreen() {
     return <Text>Loading...</Text>;
   }
 
-  const getCurrentLocation = async () => {
+  const currentLocation = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
-    if (status !== 'granted') {
-      console.error('Permission to access location was denied');
-      return;
+    if (status !== "granted") {
+      console.log("Please grant location permissions");
     }
 
-    let location = await Location.getCurrentPositionAsync({});
-    setLocation(location);
-  }
+    let location = await Location.getCurrentPositionAsync({
+      enableHighAccuracy: true,
+    });
+
+    const reverseGeocodeAddress = await Location.reverseGeocodeAsync({
+      longitude: location.coords.longitude,
+      latitude: location.coords.latitude,
+    });
+    console.log(reverseGeocodeAddress);
+    console.log(location.coords.latitude, location.coords.longitude);
+  };
 
 
   return (
@@ -79,7 +86,7 @@ export default function DetailsScreen() {
           </View>
         </ScrollView>
       </View>
-      <TouchableOpacity onPress={getCurrentLocation}>
+      <TouchableOpacity onPress={currentLocation}>
       <View style={styles.mapContainer}>
         <MapView
           provider={PROVIDER_GOOGLE}
@@ -91,16 +98,11 @@ export default function DetailsScreen() {
             longitudeDelta: 0.0421,
           }}
         >
-          {location && (
-            <Marker
-              coordinate={{
-                latitude: location.coords.latitude,
-                longitude: location.coords.longitude,
-              }}
-              title="Your Location"
-              description="This is your current location"
-            />
-          )}
+          <Marker
+            coordinate={{ latitude: 31.9454, longitude: 35.9284 }}
+            title="Amman, Jordan"
+            description="Capital city of Jordan"
+          />
         </MapView>
       </View>
     </TouchableOpacity>
@@ -194,4 +196,46 @@ const styles = StyleSheet.create({
   map: {
     flex: 1,
   },
+  // centeredView: {
+  //   flex: 1,
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  //   marginTop: 22,
+  // },
+  // modalView: {
+  //   margin: 20,
+  //   backgroundColor: "white",
+  //   borderRadius: 20,
+  //   padding: 35,
+  //   alignItems: "center",
+  //   shadowColor: "#000",
+  //   shadowOffset: {
+  //     width: 0,
+  //     height: 2,
+  //   },
+  //   shadowOpacity: 0.25,
+  //   shadowRadius: 4,
+  //   elevation: 5,
+  // },
+  // modalText: {
+  //   marginBottom: 15,
+  //   textAlign: "center",
+  //   fontSize: 22,
+  // },
+  // okButton: {
+  //   width: 200,
+  //   height: 50,
+  //   elevation: 20,
+  //   color: "#ffff",
+  //   backgroundColor: "#2c2b34",
+  //   borderRadius: 20,
+  //   paddingVertical: 10,
+  //   justifyContent: "center",
+  //   marginTop: 20,
+  // },
+  // okButtonText: {
+  //   color: "white",
+  //   fontWeight: "bold",
+  //   textAlign: "center",
+  // },
 });
